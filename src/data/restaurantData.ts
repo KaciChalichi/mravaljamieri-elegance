@@ -9,49 +9,49 @@ export const restaurantInfo = {
   tagline: "Georgian Tradition, Served Beautifully",
   description: "Seasonal dishes, warm halls, and the kind of hospitality you remember.",
   
-  // Contact Information - REPLACE WITH REAL VALUES
-  phone: "+995 XXX XXX XXX",
-  whatsapp: "+995XXXXXXXXX", // WhatsApp number without spaces
-  email: "info@mravaljamieri.ge",
+  // Contact Information
+  phone: "+995 570 20 03 00",
+  whatsapp: "995570200300", // WhatsApp number without spaces or +
+  email: "mravaljamieri0ffice@gmail.com",
   
-  // Address - REPLACE WITH REAL VALUES
+  // Address
   address: {
-    street: "123 Rustaveli Avenue",
+    street: "Tbilisi",
     city: "Tbilisi",
     country: "Georgia",
-    postalCode: "0108",
-    full: "123 Rustaveli Avenue, Tbilisi 0108, Georgia",
-    googleMapsUrl: "https://maps.google.com/?q=Tbilisi+Georgia",
-    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190255.07693507!2d44.65551!3d41.7151377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cd7e64f626b%3A0x61d084ede2576ea3!2sTbilisi%2C%20Georgia!5e0!3m2!1sen!2s!4v1234567890",
+    postalCode: "",
+    full: "Tbilisi, Georgia",
+    googleMapsUrl: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
+    googleMapsEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5!2d44.79!3d41.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQxJzI0LjAiTiA0NMKwNDcnMjQuMCJF!5e0!3m2!1sen!2sge!4v1234567890",
   },
   
-  // Hours - REPLACE WITH REAL VALUES
+  // Hours - 10:30 AM to 12:00 AM (midnight)
   hours: {
-    monday: { open: "12:00", close: "23:00", closed: false },
-    tuesday: { open: "12:00", close: "23:00", closed: false },
-    wednesday: { open: "12:00", close: "23:00", closed: false },
-    thursday: { open: "12:00", close: "23:00", closed: false },
-    friday: { open: "12:00", close: "00:00", closed: false },
-    saturday: { open: "12:00", close: "00:00", closed: false },
-    sunday: { open: "12:00", close: "22:00", closed: false },
+    monday: { open: "10:30", close: "00:00", closed: false },
+    tuesday: { open: "10:30", close: "00:00", closed: false },
+    wednesday: { open: "10:30", close: "00:00", closed: false },
+    thursday: { open: "10:30", close: "00:00", closed: false },
+    friday: { open: "10:30", close: "00:00", closed: false },
+    saturday: { open: "10:30", close: "00:00", closed: false },
+    sunday: { open: "10:30", close: "00:00", closed: false },
   },
 
-  // Social Links - REPLACE WITH REAL URLS
+  // Social Links - Real accounts
   social: {
-    facebook: "https://facebook.com/mravaljamieri",
-    instagram: "https://instagram.com/mravaljamieri",
-    tripadvisor: "https://tripadvisor.com/mravaljamieri",
-    google: "https://g.page/mravaljamieri",
+    facebook: "https://www.facebook.com/profile.php?id=100063457289857",
+    instagram: "https://www.instagram.com/restaurant_mravaljamieri",
+    tripadvisor: "https://www.tripadvisor.com/Restaurant_Review-g294195-d3533547-Reviews-Mravaljamieri-Tbilisi.html",
+    google: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
   },
 
-  // Reviews placeholder
-  rating: 4.8,
-  reviewCount: 324,
-  googleReviewsUrl: "https://g.page/mravaljamieri/review",
+  // Reviews placeholder - based on TripAdvisor
+  rating: 4.5,
+  reviewCount: 182,
+  googleReviewsUrl: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
 
   // Parking info
   parking: "Free parking available on premises",
-  publicTransport: "Metro: Rustaveli Station (5 min walk)",
+  publicTransport: "Accessible by public transport",
 };
 
 // Menu Categories - DO NOT CHANGE THE ORDER OR IDS
@@ -75,50 +75,51 @@ export interface MenuItem {
   price: number;
   currency: string;
   tags: ("signature" | "spicy" | "vegetarian" | "vegan" | "gluten-free" | "popular")[];
-  image?: string;
+  image: string; // Image path - use placeholder.svg for now, replace with actual images
 }
 
 // Menu Items - REPLACE PLACEHOLDERS WITH REAL ITEMS
+// To add images: replace "/placeholder.svg" with your image path like "/menu/khinkali.jpg"
 export const menuItems: MenuItem[] = [
   // FOOD FOR GOURMETS
-  { id: "g1", category: "gourmets", name: "Signature Khinkali", description: "Traditional Georgian dumplings with juicy meat filling, served with freshly ground black pepper", price: 35, currency: "₾", tags: ["signature", "popular"] },
-  { id: "g2", category: "gourmets", name: "Adjarian Khachapuri", description: "Boat-shaped bread filled with melted cheese, butter, and a runny egg", price: 28, currency: "₾", tags: ["signature", "vegetarian"] },
-  { id: "g3", category: "gourmets", name: "Mtsvadi Selection", description: "Premium grilled meat skewers with pomegranate glaze", price: 45, currency: "₾", tags: ["signature"] },
-  { id: "g4", category: "gourmets", name: "Satsivi Royale", description: "Tender chicken in rich walnut sauce with aromatic spices", price: 38, currency: "₾", tags: ["gluten-free"] },
-  { id: "g5", category: "gourmets", name: "Lobio Claypot", description: "Slow-cooked Georgian beans in traditional clay pot", price: 22, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "g6", category: "gourmets", name: "Chakhokhbili", description: "Chicken stewed with tomatoes, herbs, and Georgian spices", price: 32, currency: "₾", tags: ["gluten-free", "popular"] },
+  { id: "g1", category: "gourmets", name: "Signature Khinkali", description: "Traditional Georgian dumplings with juicy meat filling, served with freshly ground black pepper", price: 35, currency: "₾", tags: ["signature", "popular"], image: "/placeholder.svg" },
+  { id: "g2", category: "gourmets", name: "Adjarian Khachapuri", description: "Boat-shaped bread filled with melted cheese, butter, and a runny egg", price: 28, currency: "₾", tags: ["signature", "vegetarian"], image: "/placeholder.svg" },
+  { id: "g3", category: "gourmets", name: "Mtsvadi Selection", description: "Premium grilled meat skewers with pomegranate glaze", price: 45, currency: "₾", tags: ["signature"], image: "/placeholder.svg" },
+  { id: "g4", category: "gourmets", name: "Satsivi Royale", description: "Tender chicken in rich walnut sauce with aromatic spices", price: 38, currency: "₾", tags: ["gluten-free"], image: "/placeholder.svg" },
+  { id: "g5", category: "gourmets", name: "Lobio Claypot", description: "Slow-cooked Georgian beans in traditional clay pot", price: 22, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "g6", category: "gourmets", name: "Chakhokhbili", description: "Chicken stewed with tomatoes, herbs, and Georgian spices", price: 32, currency: "₾", tags: ["gluten-free", "popular"], image: "/placeholder.svg" },
   
   // COLD DISHES AND SALADS
-  { id: "cs1", category: "cold-salads", name: "Pkhali Trio", description: "Three varieties of vegetable pâté with walnut paste", price: 18, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"] },
-  { id: "cs2", category: "cold-salads", name: "Georgian Salad", description: "Fresh tomatoes, cucumbers, onions with walnut dressing", price: 16, currency: "₾", tags: ["vegetarian", "vegan", "popular"] },
-  { id: "cs3", category: "cold-salads", name: "Eggplant Rolls", description: "Grilled eggplant with walnut-garlic filling", price: 20, currency: "₾", tags: ["vegetarian", "gluten-free"] },
-  { id: "cs4", category: "cold-salads", name: "Spinach Pkhali", description: "Spinach with walnut paste and pomegranate", price: 15, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "cs5", category: "cold-salads", name: "Beet Pkhali", description: "Beetroot with aromatic walnut paste", price: 15, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "cs6", category: "cold-salads", name: "Mixed Greens", description: "Seasonal herbs and greens from local farms", price: 12, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"] },
+  { id: "cs1", category: "cold-salads", name: "Pkhali Trio", description: "Three varieties of vegetable pâté with walnut paste", price: 18, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"], image: "/placeholder.svg" },
+  { id: "cs2", category: "cold-salads", name: "Georgian Salad", description: "Fresh tomatoes, cucumbers, onions with walnut dressing", price: 16, currency: "₾", tags: ["vegetarian", "vegan", "popular"], image: "/placeholder.svg" },
+  { id: "cs3", category: "cold-salads", name: "Eggplant Rolls", description: "Grilled eggplant with walnut-garlic filling", price: 20, currency: "₾", tags: ["vegetarian", "gluten-free"], image: "/placeholder.svg" },
+  { id: "cs4", category: "cold-salads", name: "Spinach Pkhali", description: "Spinach with walnut paste and pomegranate", price: 15, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "cs5", category: "cold-salads", name: "Beet Pkhali", description: "Beetroot with aromatic walnut paste", price: 15, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "cs6", category: "cold-salads", name: "Mixed Greens", description: "Seasonal herbs and greens from local farms", price: 12, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"], image: "/placeholder.svg" },
   
   // COLD DISHES
-  { id: "cd1", category: "cold-dishes", name: "Assorted Cheese Plate", description: "Selection of Georgian cheeses with honey and walnuts", price: 28, currency: "₾", tags: ["vegetarian", "gluten-free", "popular"] },
-  { id: "cd2", category: "cold-dishes", name: "Sulguni Rolls", description: "Smoked cheese rolls with fresh herbs", price: 22, currency: "₾", tags: ["vegetarian", "gluten-free"] },
-  { id: "cd3", category: "cold-dishes", name: "Nadughi", description: "Fresh cottage cheese wrapped in sulguni", price: 18, currency: "₾", tags: ["vegetarian"] },
-  { id: "cd4", category: "cold-dishes", name: "Jonjoli", description: "Pickled blossoms, a Georgian delicacy", price: 14, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "cd5", category: "cold-dishes", name: "Mchadi with Cheese", description: "Cornbread served with fresh cheese", price: 16, currency: "₾", tags: ["vegetarian"] },
-  { id: "cd6", category: "cold-dishes", name: "Georgian Pickles", description: "Assortment of traditional pickled vegetables", price: 12, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"] },
+  { id: "cd1", category: "cold-dishes", name: "Assorted Cheese Plate", description: "Selection of Georgian cheeses with honey and walnuts", price: 28, currency: "₾", tags: ["vegetarian", "gluten-free", "popular"], image: "/placeholder.svg" },
+  { id: "cd2", category: "cold-dishes", name: "Sulguni Rolls", description: "Smoked cheese rolls with fresh herbs", price: 22, currency: "₾", tags: ["vegetarian", "gluten-free"], image: "/placeholder.svg" },
+  { id: "cd3", category: "cold-dishes", name: "Nadughi", description: "Fresh cottage cheese wrapped in sulguni", price: 18, currency: "₾", tags: ["vegetarian"], image: "/placeholder.svg" },
+  { id: "cd4", category: "cold-dishes", name: "Jonjoli", description: "Pickled blossoms, a Georgian delicacy", price: 14, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "cd5", category: "cold-dishes", name: "Mchadi with Cheese", description: "Cornbread served with fresh cheese", price: 16, currency: "₾", tags: ["vegetarian"], image: "/placeholder.svg" },
+  { id: "cd6", category: "cold-dishes", name: "Georgian Pickles", description: "Assortment of traditional pickled vegetables", price: 12, currency: "₾", tags: ["vegetarian", "vegan", "gluten-free"], image: "/placeholder.svg" },
   
   // SOUPS
-  { id: "s1", category: "soups", name: "Kharcho", description: "Rich beef soup with rice, walnuts, and tkemali", price: 18, currency: "₾", tags: ["spicy", "popular"] },
-  { id: "s2", category: "soups", name: "Chikhirtma", description: "Traditional chicken soup with egg and vinegar", price: 16, currency: "₾", tags: ["gluten-free"] },
-  { id: "s3", category: "soups", name: "Lobio Soup", description: "Hearty bean soup with fresh herbs", price: 14, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "s4", category: "soups", name: "Matsoni Soup", description: "Cold yogurt soup with fresh cucumbers", price: 12, currency: "₾", tags: ["vegetarian", "gluten-free"] },
-  { id: "s5", category: "soups", name: "Beef Broth", description: "Clear beef broth with fresh herbs", price: 15, currency: "₾", tags: ["gluten-free"] },
-  { id: "s6", category: "soups", name: "Chicken Bouillon", description: "Light chicken soup with vermicelli", price: 14, currency: "₾", tags: [] },
+  { id: "s1", category: "soups", name: "Kharcho", description: "Rich beef soup with rice, walnuts, and tkemali", price: 18, currency: "₾", tags: ["spicy", "popular"], image: "/placeholder.svg" },
+  { id: "s2", category: "soups", name: "Chikhirtma", description: "Traditional chicken soup with egg and vinegar", price: 16, currency: "₾", tags: ["gluten-free"], image: "/placeholder.svg" },
+  { id: "s3", category: "soups", name: "Lobio Soup", description: "Hearty bean soup with fresh herbs", price: 14, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "s4", category: "soups", name: "Matsoni Soup", description: "Cold yogurt soup with fresh cucumbers", price: 12, currency: "₾", tags: ["vegetarian", "gluten-free"], image: "/placeholder.svg" },
+  { id: "s5", category: "soups", name: "Beef Broth", description: "Clear beef broth with fresh herbs", price: 15, currency: "₾", tags: ["gluten-free"], image: "/placeholder.svg" },
+  { id: "s6", category: "soups", name: "Chicken Bouillon", description: "Light chicken soup with vermicelli", price: 14, currency: "₾", tags: [], image: "/placeholder.svg" },
   
   // BAKED
-  { id: "b1", category: "baked", name: "Imeruli Khachapuri", description: "Classic cheese-filled bread from Imereti region", price: 22, currency: "₾", tags: ["vegetarian", "signature"] },
-  { id: "b2", category: "baked", name: "Megruli Khachapuri", description: "Double-cheese khachapuri, baked with cheese on top", price: 26, currency: "₾", tags: ["vegetarian", "popular"] },
-  { id: "b3", category: "baked", name: "Lobiani", description: "Bean-filled bread with aromatic spices", price: 18, currency: "₾", tags: ["vegetarian", "vegan"] },
-  { id: "b4", category: "baked", name: "Kubdari", description: "Meat-filled bread from Svaneti", price: 28, currency: "₾", tags: ["signature", "spicy"] },
-  { id: "b5", category: "baked", name: "Achma", description: "Layered cheese bread, baked to perfection", price: 24, currency: "₾", tags: ["vegetarian"] },
-  { id: "b6", category: "baked", name: "Penovani", description: "Puff pastry filled with cheese", price: 20, currency: "₾", tags: ["vegetarian"] },
+  { id: "b1", category: "baked", name: "Imeruli Khachapuri", description: "Classic cheese-filled bread from Imereti region", price: 22, currency: "₾", tags: ["vegetarian", "signature"], image: "/placeholder.svg" },
+  { id: "b2", category: "baked", name: "Megruli Khachapuri", description: "Double-cheese khachapuri, baked with cheese on top", price: 26, currency: "₾", tags: ["vegetarian", "popular"], image: "/placeholder.svg" },
+  { id: "b3", category: "baked", name: "Lobiani", description: "Bean-filled bread with aromatic spices", price: 18, currency: "₾", tags: ["vegetarian", "vegan"], image: "/placeholder.svg" },
+  { id: "b4", category: "baked", name: "Kubdari", description: "Meat-filled bread from Svaneti", price: 28, currency: "₾", tags: ["signature", "spicy"], image: "/placeholder.svg" },
+  { id: "b5", category: "baked", name: "Achma", description: "Layered cheese bread, baked to perfection", price: 24, currency: "₾", tags: ["vegetarian"], image: "/placeholder.svg" },
+  { id: "b6", category: "baked", name: "Penovani", description: "Puff pastry filled with cheese", price: 20, currency: "₾", tags: ["vegetarian"], image: "/placeholder.svg" },
 ];
 
 // Chef's Picks - IDs of featured menu items
@@ -293,13 +294,12 @@ export const reviews = [
   { id: 6, name: "Tamara S.", rating: 5, text: "Family celebrations here are always special. The staff remembers our preferences.", date: "1 month ago" },
 ];
 
-// Navigation items
+// Navigation items - Updated for multi-page routing
 export const navItems = [
-  { id: "home", label: "Home", labelGe: "მთავარი", href: "#home" },
-  { id: "menu", label: "Menu", labelGe: "მენიუ", href: "#menu" },
-  { id: "gallery", label: "Gallery", labelGe: "გალერეა", href: "#gallery" },
-  { id: "about", label: "About", labelGe: "ჩვენს შესახებ", href: "#about" },
-  { id: "events", label: "Events", labelGe: "ღონისძიებები", href: "#events" },
-  { id: "reviews", label: "Reviews", labelGe: "შეფასებები", href: "#reviews" },
-  { id: "contact", label: "Contact", labelGe: "კონტაქტი", href: "#contact" },
+  { id: "home", label: "Home", labelGe: "მთავარი", href: "/" },
+  { id: "menu", label: "Menu", labelGe: "მენიუ", href: "/menu" },
+  { id: "gallery", label: "Gallery", labelGe: "გალერეა", href: "/gallery" },
+  { id: "about", label: "About", labelGe: "ჩვენს შესახებ", href: "/about" },
+  { id: "events", label: "Events", labelGe: "ღონისძიებები", href: "/events" },
+  { id: "contact", label: "Contact", labelGe: "კონტაქტი", href: "/contact" },
 ];
