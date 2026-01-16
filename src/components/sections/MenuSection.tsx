@@ -19,53 +19,65 @@ function MenuItemCard({ item }: { item: MenuItem }) {
   const { t } = useLanguage();
   
   return (
-    <div className="group bg-card rounded-lg p-4 md:p-5 border border-border/50 hover:border-primary/20 hover:shadow-soft transition-all duration-300">
-      <div className="flex justify-between items-start gap-3">
-        <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-1">
-            <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-              {t(item.name, item.nameGe)}
-            </h4>
-            {item.tags.includes("popular") && (
-              <Badge variant="secondary" className="bg-gold/20 text-gold-dark text-xs">
-                <Star className="h-3 w-3 mr-1 fill-current" />
-                {t("Popular", "პოპულარული")}
-              </Badge>
-            )}
-            {item.tags.includes("signature") && (
-              <Badge variant="outline" className="border-primary/30 text-primary text-xs">
-                {t("Signature", "საფირმო")}
-              </Badge>
-            )}
+    <div className="group bg-card rounded-lg overflow-hidden border border-border/50 hover:border-primary/20 hover:shadow-soft transition-all duration-300">
+      {/* Image - Click to replace in Visual Edits */}
+      <div className="relative aspect-[16/10] bg-muted overflow-hidden">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      
+      <div className="p-4 md:p-5">
+        <div className="flex justify-between items-start gap-3">
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2 flex-wrap mb-1">
+              <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                {t(item.name, item.nameGe)}
+              </h4>
+              {item.tags.includes("popular") && (
+                <Badge variant="secondary" className="bg-gold/20 text-gold-dark text-xs">
+                  <Star className="h-3 w-3 mr-1 fill-current" />
+                  {t("Popular", "პოპულარული")}
+                </Badge>
+              )}
+              {item.tags.includes("signature") && (
+                <Badge variant="outline" className="border-primary/30 text-primary text-xs">
+                  {t("Signature", "საფირმო")}
+                </Badge>
+              )}
+            </div>
+            <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
+              {t(item.description, item.descriptionGe)}
+            </p>
+            <div className="flex items-center gap-2 flex-wrap">
+              {item.tags.includes("vegetarian") && (
+                <span className="text-xs text-green-600 flex items-center gap-1">
+                  <Leaf className="h-3 w-3" /> {t("Veg", "ვეგ")}
+                </span>
+              )}
+              {item.tags.includes("vegan") && (
+                <span className="text-xs text-green-700 flex items-center gap-1">
+                  <Leaf className="h-3 w-3" /> {t("Vegan", "ვეგანური")}
+                </span>
+              )}
+              {item.tags.includes("spicy") && (
+                <span className="text-xs text-red-500 flex items-center gap-1">
+                  <Flame className="h-3 w-3" /> {t("Spicy", "ცხარე")}
+                </span>
+              )}
+              {item.tags.includes("gluten-free") && (
+                <span className="text-xs text-amber-600">GF</span>
+              )}
+            </div>
           </div>
-          <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-            {t(item.description, item.descriptionGe)}
-          </p>
-          <div className="flex items-center gap-2 flex-wrap">
-            {item.tags.includes("vegetarian") && (
-              <span className="text-xs text-green-600 flex items-center gap-1">
-                <Leaf className="h-3 w-3" /> {t("Veg", "ვეგ")}
-              </span>
-            )}
-            {item.tags.includes("vegan") && (
-              <span className="text-xs text-green-700 flex items-center gap-1">
-                <Leaf className="h-3 w-3" /> {t("Vegan", "ვეგანური")}
-              </span>
-            )}
-            {item.tags.includes("spicy") && (
-              <span className="text-xs text-red-500 flex items-center gap-1">
-                <Flame className="h-3 w-3" /> {t("Spicy", "ცხარე")}
-              </span>
-            )}
-            {item.tags.includes("gluten-free") && (
-              <span className="text-xs text-amber-600">GF</span>
-            )}
+          <div className="text-right">
+            <span className="font-display text-xl font-bold text-primary">
+              {item.price}{item.currency}
+            </span>
           </div>
-        </div>
-        <div className="text-right">
-          <span className="font-display text-xl font-bold text-primary">
-            {item.price}{item.currency}
-          </span>
         </div>
       </div>
     </div>
@@ -236,9 +248,15 @@ export function MenuSection() {
           </Button>
         </div>
 
-        {/* Edit Note (hidden in production) */}
+        {/* Edit Note */}
         <div className="mt-8 p-4 bg-secondary/50 rounded-lg border border-dashed border-muted-foreground/30 text-sm text-muted-foreground">
-          <strong>📝 Owner Note:</strong> Replace menu items in <code>src/data/restaurantData.ts</code> - look for the <code>menuItems</code> array.
+          <strong>📝 Owner Note:</strong> To add food images: 
+          <ol className="list-decimal ml-5 mt-2 space-y-1">
+            <li>Open <code>src/data/restaurantData.ts</code></li>
+            <li>Find the <code>menuItems</code> array</li>
+            <li>Replace <code>"/placeholder.svg"</code> with your image path like <code>"/menu/khinkali.jpg"</code></li>
+          </ol>
+          <p className="mt-2">Or upload images to <code>public/menu/</code> folder and reference them.</p>
         </div>
       </div>
     </section>

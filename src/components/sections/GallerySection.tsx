@@ -205,7 +205,13 @@ export function GallerySection() {
 
         {/* Edit Note */}
         <div className="mt-8 p-4 bg-secondary/50 rounded-lg border border-dashed border-muted-foreground/30 text-sm text-muted-foreground">
-          <strong>📝 Owner Note:</strong> Replace gallery images in <code>src/data/restaurantData.ts</code> - look for the <code>galleryImages</code> array.
+          <strong>📝 Owner Note:</strong> To add gallery images:
+          <ol className="list-decimal ml-5 mt-2 space-y-1">
+            <li>Upload images to <code>public/gallery/</code> folder</li>
+            <li>Open <code>src/data/restaurantData.ts</code></li>
+            <li>Find the <code>galleryImages</code> array</li>
+            <li>Replace <code>"/placeholder.svg"</code> with paths like <code>"/gallery/great-hall-1.jpg"</code></li>
+          </ol>
         </div>
       </div>
 
