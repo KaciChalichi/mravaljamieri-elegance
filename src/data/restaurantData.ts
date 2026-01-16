@@ -91,7 +91,7 @@ export const menuItems: MenuItem[] = [
     price: 35,
     currency: "₾",
     tags: ["signature", "popular"],
-    image: "/placeholder.svg",
+    image: "https://ibb.co/8h0wSYz",
   },
   {
     id: "g2",
