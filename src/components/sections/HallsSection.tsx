@@ -2,25 +2,23 @@ import { Users, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { hallCards } from "@/data/restaurantData";
+
 export function HallsSection() {
-  const {
-    t
-  } = useLanguage();
+  const { t } = useLanguage();
+
   const scrollToGallery = (categoryId: string) => {
     const element = document.getElementById("gallery");
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
+      element.scrollIntoView({ behavior: "smooth" });
       // Trigger category change after scroll
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("gallery-category", {
-          detail: categoryId
-        }));
+        window.dispatchEvent(new CustomEvent("gallery-category", { detail: categoryId }));
       }, 500);
     }
   };
-  return <section className="section-padding">
+
+  return (
+    <section className="section-padding">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -31,15 +29,27 @@ export function HallsSection() {
             {t("Halls & Atmosphere", "დარბაზები და ატმოსფერო")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {t("Perfect for birthdays, family feasts, company dinners, and unforgettable celebrations", "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის")}
+            {t(
+              "Perfect for birthdays, family feasts, company dinners, and unforgettable celebrations",
+              "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის"
+            )}
           </p>
         </div>
 
         {/* Halls Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {hallCards.map(hall => <button key={hall.id} onClick={() => scrollToGallery(hall.id)} className="group text-left">
+          {hallCards.map((hall) => (
+            <button
+              key={hall.id}
+              onClick={() => scrollToGallery(hall.id)}
+              className="group text-left"
+            >
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4">
-                <img src={hall.image} alt={hall.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                <img
+                  src={hall.image}
+                  alt={hall.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-primary-foreground/90 backdrop-blur-sm rounded-full p-2">
@@ -55,22 +65,26 @@ export function HallsSection() {
               </p>
               <div className="flex items-center gap-1 text-sm text-primary">
                 <Users className="h-4 w-4" />
-                <span className="">{hall.capacity} {t("guests", "სტუმარი")}</span>
+                <span>{hall.capacity} {t("guests", "სტუმარი")}</span>
               </div>
-            </button>)}
+            </button>
+          ))}
         </div>
 
         {/* CTA */}
         <div className="text-center">
-          <Button variant="cta" size="lg" onClick={() => {
-          const element = document.getElementById("events");
-          if (element) element.scrollIntoView({
-            behavior: "smooth"
-          });
-        }}>
+          <Button
+            variant="cta"
+            size="lg"
+            onClick={() => {
+              const element = document.getElementById("events");
+              if (element) element.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             {t("Plan Your Event", "დაგეგმეთ ღონისძიება")}
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 }
