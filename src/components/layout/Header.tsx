@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, MapPin, Calendar, Globe } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, Phone, Calendar, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -8,46 +9,37 @@ import { cn } from "@/lib/utils";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
-      // Determine active section
-      const sections = navItems.map(item => item.id);
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= 100) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (href: string) => {
-    const id = href.replace("#", "");
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+  const handleNavClick = (href: string) => {
     setIsOpen(false);
+    navigate(href);
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") return location.pathname === "/";
+    return location.pathname.startsWith(href);
   };
 
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-        isScrolled
+        isScrolled || !isHomePage
           ? "bg-background/95 backdrop-blur-md shadow-soft py-2"
           : "bg-transparent py-4"
       )}
@@ -55,81 +47,71 @@ export function Header() {
       <div className="container-custom">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            href="#home"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToSection("#home");
-            }}
-            className="flex items-center"
-          >
+          <Link to="/" className="flex items-center">
             <span
               className={cn(
                 "font-display text-2xl md:text-3xl font-bold tracking-tight transition-colors duration-300",
-                isScrolled ? "text-primary" : "text-primary-foreground"
+                isScrolled || !isHomePage ? "text-primary" : "text-primary-foreground"
               )}
             >
               {restaurantInfo.name}
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.id}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(item.href);
-                }}
+                to={item.href}
                 className={cn(
                   "px-3 py-2 text-sm font-medium transition-colors duration-300 relative",
-                  isScrolled
-                    ? activeSection === item.id
+                  isScrolled || !isHomePage
+                    ? isActive(item.href)
                       ? "text-primary"
                       : "text-foreground/70 hover:text-foreground"
-                    : activeSection === item.id
+                    : isActive(item.href)
                     ? "text-primary-foreground"
                     : "text-primary-foreground/70 hover:text-primary-foreground",
                   "after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0.5 after:bg-current after:transition-all after:duration-300",
-                  activeSection === item.id && "after:w-4"
+                  isActive(item.href) && "after:w-4"
                 )}
               >
                 {t(item.label, item.labelGe)}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Desktop CTAs */}
           <div className="hidden lg:flex items-center gap-3">
-            <a href={`tel:${restaurantInfo.phone}`}>
+            <Link to="/contact">
               <Button
-                variant={isScrolled ? "actionOutline" : "heroOutline"}
+                variant={isScrolled || !isHomePage ? "actionOutline" : "heroOutline"}
                 size="sm"
                 className={cn(
-                  !isScrolled && "border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10"
+                  !isScrolled && isHomePage && "border-primary-foreground/50 text-primary-foreground hover:bg-primary-foreground/10"
                 )}
               >
                 <Phone className="h-4 w-4" />
                 {t("Call", "დარეკვა")}
               </Button>
-            </a>
-            <Button
-              variant={isScrolled ? "action" : "hero"}
-              size="sm"
-              onClick={() => scrollToSection("#events")}
-            >
-              <Calendar className="h-4 w-4" />
-              {t("Reserve", "დაჯავშნა")}
-            </Button>
+            </Link>
+            <Link to="/events">
+              <Button
+                variant={isScrolled || !isHomePage ? "action" : "hero"}
+                size="sm"
+              >
+                <Calendar className="h-4 w-4" />
+                {t("Reserve", "დაჯავშნა")}
+              </Button>
+            </Link>
             
             {/* Language Toggle */}
             <button
               onClick={() => setLanguage(language === "en" ? "ge" : "en")}
               className={cn(
                 "flex items-center gap-1 px-2 py-1 text-sm font-medium transition-colors",
-                isScrolled
+                isScrolled || !isHomePage
                   ? "text-foreground/70 hover:text-foreground"
                   : "text-primary-foreground/70 hover:text-primary-foreground"
               )}
@@ -145,7 +127,7 @@ export function Header() {
               onClick={() => setLanguage(language === "en" ? "ge" : "en")}
               className={cn(
                 "p-2 text-sm font-medium",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                isScrolled || !isHomePage ? "text-foreground" : "text-primary-foreground"
               )}
             >
               {language === "en" ? "GE" : "EN"}
@@ -157,7 +139,7 @@ export function Header() {
                   variant="ghost"
                   size="icon"
                   className={cn(
-                    isScrolled
+                    isScrolled || !isHomePage
                       ? "text-foreground"
                       : "text-primary-foreground hover:bg-primary-foreground/10"
                   )}
@@ -175,43 +157,35 @@ export function Header() {
                   
                   <nav className="flex-1 py-6">
                     {navItems.map((item) => (
-                      <a
+                      <button
                         key={item.id}
-                        href={item.href}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          scrollToSection(item.href);
-                        }}
+                        onClick={() => handleNavClick(item.href)}
                         className={cn(
-                          "block py-3 px-4 text-lg font-medium transition-colors",
-                          activeSection === item.id
+                          "block w-full text-left py-3 px-4 text-lg font-medium transition-colors",
+                          isActive(item.href)
                             ? "text-primary bg-secondary/50"
                             : "text-foreground/70 hover:text-foreground hover:bg-secondary/30"
                         )}
                       >
                         {t(item.label, item.labelGe)}
-                      </a>
+                      </button>
                     ))}
                   </nav>
                   
                   {/* Mobile CTAs */}
                   <div className="py-6 border-t space-y-3">
-                    <a href={`tel:${restaurantInfo.phone}`} className="block">
-                      <Button variant="ctaOutline" className="w-full">
-                        <Phone className="h-4 w-4 mr-2" />
-                        {t("Call Now", "დარეკეთ ახლა")}
-                      </Button>
-                    </a>
-                    <a href={restaurantInfo.address.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="block">
-                      <Button variant="ctaOutline" className="w-full">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {t("Get Directions", "მისამართი")}
-                      </Button>
-                    </a>
+                    <Button 
+                      variant="ctaOutline" 
+                      className="w-full"
+                      onClick={() => handleNavClick("/contact")}
+                    >
+                      <Phone className="h-4 w-4 mr-2" />
+                      {t("Contact Us", "დაგვიკავშირდით")}
+                    </Button>
                     <Button
                       variant="cta"
                       className="w-full"
-                      onClick={() => scrollToSection("#events")}
+                      onClick={() => handleNavClick("/events")}
                     >
                       <Calendar className="h-4 w-4 mr-2" />
                       {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}

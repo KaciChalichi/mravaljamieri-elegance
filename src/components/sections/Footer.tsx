@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Phone, MapPin, Calendar, Facebook, Instagram, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -7,16 +8,8 @@ export function Footer() {
   const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (href: string) => {
-    const id = href.replace("#", "");
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <footer className="bg-charcoal text-primary-foreground">
+    <footer className="bg-charcoal text-primary-foreground pb-20 lg:pb-0">
       {/* Main Footer */}
       <div className="container-custom py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
@@ -34,26 +27,24 @@ export function Footer() {
             
             {/* CTAs */}
             <div className="flex flex-wrap gap-3">
-              <a href={`tel:${restaurantInfo.phone}`}>
+              <Link to="/contact">
                 <Button variant="heroOutline" size="sm">
                   <Phone className="h-4 w-4 mr-2" />
                   {t("Call", "დარეკვა")}
                 </Button>
-              </a>
-              <a href={restaurantInfo.address.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+              </Link>
+              <Link to="/contact">
                 <Button variant="heroOutline" size="sm">
                   <MapPin className="h-4 w-4 mr-2" />
                   {t("Directions", "მისამართი")}
                 </Button>
-              </a>
-              <Button
-                variant="hero"
-                size="sm"
-                onClick={() => scrollToSection("#events")}
-              >
-                <Calendar className="h-4 w-4 mr-2" />
-                {t("Reserve", "ჯავშანი")}
-              </Button>
+              </Link>
+              <Link to="/events">
+                <Button variant="hero" size="sm">
+                  <Calendar className="h-4 w-4 mr-2" />
+                  {t("Reserve", "ჯავშანი")}
+                </Button>
+              </Link>
             </div>
           </div>
 
@@ -64,17 +55,13 @@ export function Footer() {
             </h4>
             <nav className="space-y-2">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.id}
-                  href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(item.href);
-                  }}
+                  to={item.href}
                   className="block text-primary-foreground/70 hover:text-primary-foreground transition-colors"
                 >
                   {t(item.label, item.labelGe)}
-                </a>
+                </Link>
               ))}
             </nav>
           </div>
@@ -115,7 +102,6 @@ export function Footer() {
             </div>
             
             <div className="text-sm text-primary-foreground/60">
-              <p>{restaurantInfo.address.street}</p>
               <p>{restaurantInfo.address.city}, {restaurantInfo.address.country}</p>
               <p className="mt-2">{restaurantInfo.phone}</p>
               <p>{restaurantInfo.email}</p>
