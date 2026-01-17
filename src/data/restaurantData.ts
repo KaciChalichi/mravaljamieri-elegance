@@ -21,9 +21,10 @@ export const restaurantInfo = {
     country: "Georgia",
     postalCode: "",
     full: "Tbilisi, Georgia",
-    googleMapsUrl: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
+    googleMapsUrl: "https://maps.app.goo.gl/G8m3BR73f2XQyX1E9",
     googleMapsEmbed:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5!2d44.79!3d41.69!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDQxJzI0LjAiTiA0NMKwNDcnMjQuMCJF!5e0!3m2!1sen!2sge!4v1234567890",
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2977.23251511832!2d44.7732729!3d41.7370774!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x404472ec0f6ae42b%3A0xa59ba012fddb9757!2sMravaljamieri!5e0!3m2!1sen!2sge!4v1768678656806!5m2!1sen!2sge
+",
   },
 
   // Hours - 10:30 AM to 12:00 AM (midnight)
@@ -42,13 +43,13 @@ export const restaurantInfo = {
     facebook: "https://www.facebook.com/profile.php?id=100063457289857",
     instagram: "https://www.instagram.com/restaurant_mravaljamieri",
     tripadvisor: "https://www.tripadvisor.com/Restaurant_Review-g294195-d3533547-Reviews-Mravaljamieri-Tbilisi.html",
-    google: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
+    google: "https://maps.app.goo.gl/G8m3BR73f2XQyX1E9",
   },
 
   // Reviews placeholder - based on TripAdvisor
   rating: 4.5,
   reviewCount: 182,
-  googleReviewsUrl: "https://maps.app.goo.gl/fdvLqkpvXLYe4Uw3A",
+  googleReviewsUrl: "https://maps.app.goo.gl/G8m3BR73f2XQyX1E9",
 
   // Parking info
   parking: "Free parking available on premises",
