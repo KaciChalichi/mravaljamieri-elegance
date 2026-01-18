@@ -136,12 +136,12 @@ export function ReviewsSection() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">{review.name}</p>
-                    <p className="text-xs text-muted-foreground">{review.date}</p>
+                    <p className="text-xs text-muted-foreground">{t(review.date, review.dateGe)}</p>
                   </div>
                 </div>
                 <StarRating rating={review.rating} />
                 <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                  "{review.text}"
+                  "{t(review.text, review.textGe)}"
                 </p>
               </div>
             ))}
