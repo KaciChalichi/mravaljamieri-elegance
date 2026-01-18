@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { ChevronDown, Clock, MapPin, Phone, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -20,19 +21,13 @@ export function HeroSection() {
   const todayHours = restaurantInfo.hours[today];
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      />
-      
+      <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${heroBg})` }} />
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-charcoal/50 via-charcoal/60 to-charcoal/80" />
-      
+
       {/* Texture overlay */}
       <div className="absolute inset-0 texture-overlay pointer-events-none" />
 
@@ -59,25 +54,21 @@ export function HeroSection() {
           <p className="font-body text-lg md:text-xl lg:text-2xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
             {t(
               "Seasonal dishes, warm halls, and the kind of hospitality you remember.",
-              "სეზონური კერძები, თბილი დარბაზები და სტუმართმოყვარეობა, რომელსაც დაიმახსოვრებთ."
+              "სეზონური კერძები, თბილი დარბაზები და სტუმართმოყვარეობა, რომელსაც დაიმახსოვრებთ.",
             )}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a href="/#menu">
-              <Button variant="hero">
-                {t("View Menu", "მენიუ")}
-              </Button>
-            </a>
-            <a 
+            <Link to="/menu">
+              <Button variant="hero">{t("View Menu", "მენიუ")}</Button>
+            </Link>
+            <a
               href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="heroOutline">
-                {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
-              </Button>
+              <Button variant="heroOutline">{t("Reserve a Table", "დაჯავშნეთ მაგიდა")}</Button>
             </a>
           </div>
 
@@ -86,7 +77,8 @@ export function HeroSection() {
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <Clock className="h-4 w-4 text-gold" />
               <span>
-                {t("Today", "დღეს")}: {todayHours.closed ? t("Closed", "დახურულია") : `${todayHours.open} - ${todayHours.close}`}
+                {t("Today", "დღეს")}:{" "}
+                {todayHours.closed ? t("Closed", "დახურულია") : `${todayHours.open} - ${todayHours.close}`}
               </span>
             </div>
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -95,7 +87,9 @@ export function HeroSection() {
             </div>
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <Star className="h-4 w-4 text-gold fill-gold" />
-              <span>{restaurantInfo.rating} ({restaurantInfo.reviewCount}+ {t("reviews", "შეფასება")})</span>
+              <span>
+                {restaurantInfo.rating} ({restaurantInfo.reviewCount}+ {t("reviews", "შეფასება")})
+              </span>
             </div>
           </div>
         </div>
