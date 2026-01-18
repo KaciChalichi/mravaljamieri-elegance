@@ -112,7 +112,7 @@ export function Header() {
             
             {/* Language Toggle */}
             <button
-              onClick={() => setLanguage(language === "en" ? "ge" : "en")}
+              onClick={() => setLanguage(language === "en" ? "ge" : language === "ge" ? "ru" : "en")}
               className={cn(
                 "flex items-center gap-1 px-2 py-1 text-sm font-medium transition-colors",
                 isScrolled || !isHomePage
@@ -121,20 +121,20 @@ export function Header() {
               )}
             >
               <Globe className="h-4 w-4" />
-              {language === "en" ? "GE" : "EN"}
+              {language === "en" ? "EN" : language === "ge" ? "GE" : "RU"}
             </button>
           </div>
 
           {/* Mobile Menu */}
           <div className="lg:hidden flex items-center gap-2">
             <button
-              onClick={() => setLanguage(language === "en" ? "ge" : "en")}
+              onClick={() => setLanguage(language === "en" ? "ge" : language === "ge" ? "ru" : "en")}
               className={cn(
                 "p-2 text-sm font-medium",
                 isScrolled || !isHomePage ? "text-foreground" : "text-primary-foreground"
               )}
             >
-              {language === "en" ? "GE" : "EN"}
+              {language === "en" ? "EN" : language === "ge" ? "GE" : "RU"}
             </button>
             
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
