@@ -106,7 +106,7 @@ export const menuItems: MenuItem[] = [
     description: "Pyramid from juicy kebab (Pork, veal, chicken, vegetables, fried quail)",
     descriptionGe: "ცვრიანი მწვადების პირამიდა (ღორის მწვადი; ხბოს მწვადი; ქათმის მწვადი; ბოსტნეულის მწვადი; ქაბაბი; შემწვარი მწყერი)",
     descriptionRu: "Пирамида из сочного шашлыка (свинина, телятина, курица, овощи, кабаб, жареная перепелка)",
-    price: 0, // TODO: Add price
+    price: 119, // PRICE: Mravaljamieri - 119 GEL
     currency: "₾",
     tags: ["signature"],
     image: "/placeholder.svg", // REPLACE: Photo for Mravaljamieri
@@ -122,7 +122,7 @@ export const menuItems: MenuItem[] = [
     description: "Three types of grilled barbecue (chicken, veal, pork) served on clay brazier",
     descriptionGe: "სამი სახის მწვადი შემწვარი მაყალზე (ქათმის; ღორის და ხბოს მწვადი)",
     descriptionRu: "Шашлык трёх видов (курица, телятина, свинина) подаётся на глиняном мангале",
-    price: 0, // TODO: Add price
+    price: 77, // PRICE: Kharachogluri - 77 GEL
     currency: "₾",
     tags: ["signature"],
     image: "/placeholder.svg", // REPLACE: Photo for Kharachogluri
@@ -138,7 +138,7 @@ export const menuItems: MenuItem[] = [
     description: "Tender pieces of veal cooked with vegetables and fruit",
     descriptionGe: "ხბოს ხორცი მომზადებული საჯზე, შემწვარ ბოსტნეულთან და ხილთან ერთად",
     descriptionRu: "Мясо телятина приготовленная на саджи с овощами и фруктами",
-    price: 0, // TODO: Add price
+    price: 97, // PRICE: Saji Veal - 97 GEL
     currency: "₾",
     tags: ["signature"],
     image: "/placeholder.svg", // REPLACE: Photo for Saji Veal
@@ -154,7 +154,7 @@ export const menuItems: MenuItem[] = [
     description: "Tender pieces of chicken cooked with vegetables and fruit",
     descriptionGe: "ქათმის ხორცი მომზადებული საჯზე, შემწვარ ბოსტნეულთან და ხილთან ერთად",
     descriptionRu: "Куринное мясо приготовленная на саджи с овощами и фруктами",
-    price: 0, // TODO: Add price
+    price: 76, // PRICE: Saji Chicken - 76 GEL
     currency: "₾",
     tags: ["popular"],
     image: "/placeholder.svg", // REPLACE: Photo for Saji Chicken
@@ -170,7 +170,7 @@ export const menuItems: MenuItem[] = [
     description: "", // No description provided
     descriptionGe: "",
     descriptionRu: "",
-    price: 0, // TODO: Add price
+    price: 56, // PRICE: Trout Duke - 56 GEL
     currency: "₾",
     tags: [],
     image: "/placeholder.svg", // REPLACE: Photo for Trout Duke
@@ -186,7 +186,7 @@ export const menuItems: MenuItem[] = [
     description: "", // No description provided
     descriptionGe: "",
     descriptionRu: "",
-    price: 0, // TODO: Add price
+    price: 62, // PRICE: Thai Chicken - 62 GEL
     currency: "₾",
     tags: ["spicy"],
     image: "/placeholder.svg", // REPLACE: Photo for Thai Chicken
@@ -202,7 +202,7 @@ export const menuItems: MenuItem[] = [
     description: "", // No description provided
     descriptionGe: "",
     descriptionRu: "",
-    price: 0, // TODO: Add price
+    price: 35, // PRICE: Veal on Clay Pan - 35 GEL
     currency: "₾",
     tags: ["signature"],
     image: "/placeholder.svg", // REPLACE: Photo for Veal on Clay Pan
@@ -553,8 +553,6 @@ export const menuItems: MenuItem[] = [
   },
 ];
 
-// Chef's Picks - IDs of featured menu items
-export const chefsPicks = ["g1", "g2", "s1"];
 
 // Gallery Categories - DO NOT CHANGE THE ORDER
 export const galleryCategories = [

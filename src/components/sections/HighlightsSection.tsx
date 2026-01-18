@@ -15,7 +15,7 @@ const iconMap = {
 
 // Navigation targets for each highlight
 const highlightLinks: Record<string, { path: string; hash?: string; galleryCategory?: string }> = {
-  "Chef's Specials": { path: "/menu", hash: "chefs-picks" },
+  "Chef's Specials": { path: "/menu", hash: "food-for-gourmets" },
   "Private Cabins": { path: "/gallery", galleryCategory: "cabins" },
   "Great Hall Celebrations": { path: "/gallery", galleryCategory: "great-hall" },
   "Seasonal Ingredients": { path: "/menu" },
