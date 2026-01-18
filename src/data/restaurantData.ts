@@ -53,7 +53,9 @@ export const restaurantInfo = {
 
   // Parking info
   parking: "Free parking available on premises",
+  parkingGe: "უფასო პარკინგი ტერიტორიაზე",
   publicTransport: "Accessible by public transport",
+  publicTransportGe: "ხელმისაწვდომია საზოგადოებრივი ტრანსპორტით",
 };
 
 // Menu Categories - DO NOT CHANGE THE ORDER OR IDS
@@ -525,6 +527,7 @@ export const hallCards = [
     title: "Great Hall",
     titleGe: "დიდი დარბაზი",
     description: "Grand celebrations for up to 200 guests",
+    descriptionGe: "დიდი ზეიმი 200 სტუმრამდე",
     capacity: "100-300",
     image: "/placeholder.svg",
   },
@@ -533,6 +536,7 @@ export const hallCards = [
     title: "Painted Hall",
     titleGe: "მოხატული დარბაზი",
     description: "Historic murals and intimate gatherings",
+    descriptionGe: "ისტორიული ფრესკები და ინტიმური შეკრებები",
     capacity: "20-60",
     image: "/placeholder.svg",
   },
@@ -541,6 +545,7 @@ export const hallCards = [
     title: "Halls",
     titleGe: "დარბაზები",
     description: "Versatile spaces for any occasion",
+    descriptionGe: "მრავალმხრივი სივრცეები ნებისმიერი შემთხვევისთვის",
     capacity: "30-100",
     image: "/placeholder.svg",
   },
@@ -549,6 +554,7 @@ export const hallCards = [
     title: "Cabins",
     titleGe: "კაბინები",
     description: "Private dining for intimate moments",
+    descriptionGe: "კერძო სადილი ინტიმური მომენტებისთვის",
     capacity: "4-12",
     image: "/placeholder.svg",
   },
@@ -561,22 +567,43 @@ export const highlights = [
     title: "Chef's Specials",
     titleGe: "შეფ-მზარეულის სპეციალი",
     description: "Daily creations from our kitchen",
+    descriptionGe: "ყოველდღიური შექმნილი კერძები ჩვენი სამზარეულოდან",
   },
-  { icon: "Home", title: "Private Cabins", titleGe: "კერძო კაბინები", description: "Intimate dining experiences" },
+  {
+    icon: "Home",
+    title: "Private Cabins",
+    titleGe: "კერძო კაბინები",
+    description: "Intimate dining experiences",
+    descriptionGe: "ინტიმური სადილის გამოცდილება",
+  },
   {
     icon: "Building",
     title: "Great Hall Celebrations",
     titleGe: "დიდი დარბაზის ზეიმი",
     description: "Events up to 200 guests",
+    descriptionGe: "ღონისძიებები 200 სტუმრამდე",
   },
   {
     icon: "Leaf",
     title: "Seasonal Ingredients",
     titleGe: "სეზონური ინგრედიენტები",
     description: "Farm-fresh produce daily",
+    descriptionGe: "ფერმერული ახალი პროდუქტები ყოველდღე",
   },
-  { icon: "Music", title: "Live Music", titleGe: "ცოცხალი მუსიკა", description: "Traditional performances" },
-  { icon: "Users", title: "Group Dining", titleGe: "ჯგუფური სადილი", description: "Perfect for celebrations" },
+  {
+    icon: "Music",
+    title: "Live Music",
+    titleGe: "ცოცხალი მუსიკა",
+    description: "Traditional performances",
+    descriptionGe: "ტრადიციული წარმოდგენები",
+  },
+  {
+    icon: "Users",
+    title: "Group Dining",
+    titleGe: "ჯგუფური სადილი",
+    description: "Perfect for celebrations",
+    descriptionGe: "იდეალურია ზეიმისთვის",
+  },
 ];
 
 // FAQ Items
