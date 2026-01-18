@@ -208,90 +208,216 @@ export const menuItems: MenuItem[] = [
     image: "/placeholder.svg", // REPLACE: Photo for Veal on Clay Pan
   },
 
+  // ═══════════════════════════════════════════════════════════════
   // COLD DISHES AND SALADS
+  // ═══════════════════════════════════════════════════════════════
+
+  // PHOTO FOR CUCUMBER TOMATO WALNUT SALAD
   {
-    id: "cs1",
+    id: "cs1-cucumber-tomato-walnut",
     category: "cold-salads",
-    name: "Pkhali Trio",
-    nameGe: "ფხალის ტრიო",
-    nameRu: "Трио пхали",
-    description: "Three varieties of vegetable pâté with walnut paste",
-    descriptionGe: "სამი სახეობის ბოსტნეულის ფხალი ნიგვზის პასტით",
-    descriptionRu: "Три вида овощного паштета с ореховой пастой",
-    price: 18,
+    name: "Cucumber and Tomato Salad with Walnuts",
+    nameGe: "კიტრის და პომიდვრის სალათი ნიგვზით",
+    nameRu: "Салат из огурцов и помидоров с грецкими орехами",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 19, // PRICE: Cucumber Tomato Walnut Salad - 19 GEL
     currency: "₾",
-    tags: ["vegetarian", "vegan", "gluten-free"],
-    image: "/placeholder.svg",
+    tags: ["vegetarian"],
+    image: "/placeholder.svg", // REPLACE: Photo for Cucumber Tomato Walnut Salad
   },
+
+  // PHOTO FOR CUCUMBER TOMATO SALAD
   {
-    id: "cs2",
+    id: "cs2-cucumber-tomato",
     category: "cold-salads",
-    name: "Georgian Salad",
-    nameGe: "ქართული სალათა",
-    nameRu: "Грузинский салат",
-    description: "Fresh tomatoes, cucumbers, onions with walnut dressing",
-    descriptionGe: "ახალი პომიდვრები, კიტრი, ხახვი ნიგვზის სოუსით",
-    descriptionRu: "Свежие помидоры, огурцы, лук с ореховой заправкой",
-    price: 16,
-    currency: "₾",
-    tags: ["vegetarian", "vegan", "popular"],
-    image: "/placeholder.svg",
-  },
-  {
-    id: "cs3",
-    category: "cold-salads",
-    name: "Eggplant Rolls",
-    nameGe: "ბადრიჯნის რულეტი",
-    nameRu: "Рулетики из баклажанов",
-    description: "Grilled eggplant with walnut-garlic filling",
-    descriptionGe: "შემწვარი ბადრიჯანი ნიგვზისა და ნივრის შიგთავსით",
-    descriptionRu: "Жареные баклажаны с орехово-чесночной начинкой",
-    price: 20,
-    currency: "₾",
-    tags: ["vegetarian", "gluten-free"],
-    image: "/placeholder.svg",
-  },
-  {
-    id: "cs4",
-    category: "cold-salads",
-    name: "Spinach Pkhali",
-    nameGe: "ისპანახის ფხალი",
-    nameRu: "Пхали из шпината",
-    description: "Spinach with walnut paste and pomegranate",
-    descriptionGe: "ისპანახი ნიგვზის პასტითა და ბროწეულით",
-    descriptionRu: "Шпинат с ореховой пастой и гранатом",
-    price: 15,
+    name: "Cucumber and Tomato Salad",
+    nameGe: "კიტრის და პომიდვრის სალათი",
+    nameRu: "Салат из огурцов и помидоров",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 16, // PRICE: Cucumber Tomato Salad - 16 GEL
     currency: "₾",
     tags: ["vegetarian", "vegan"],
-    image: "/placeholder.svg",
+    image: "/placeholder.svg", // REPLACE: Photo for Cucumber Tomato Salad
   },
+
+  // PHOTO FOR CHICKEN SALAD
   {
-    id: "cs5",
+    id: "cs3-chicken-salad",
     category: "cold-salads",
-    name: "Beet Pkhali",
-    nameGe: "ჭარხლის ფხალი",
-    nameRu: "Пхали из свёклы",
-    description: "Beetroot with aromatic walnut paste",
-    descriptionGe: "ჭარხალი არომატული ნიგვზის პასტით",
-    descriptionRu: "Свёкла с ароматной ореховой пастой",
-    price: 15,
+    name: "Chicken Salad",
+    nameGe: "ქათმის ხორცის სალათი",
+    nameRu: "Куринный салат",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 13, // PRICE: Chicken Salad - 13 GEL
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Chicken Salad
+  },
+
+  // PHOTO FOR MUSHROOM WALNUT SALAD
+  {
+    id: "cs4-mushroom-walnut",
+    category: "cold-salads",
+    name: "Mushroom Salad with Walnuts",
+    nameGe: "სოკოს სალათი ნიგვზით",
+    nameRu: "Грибной салат с грецкими орехами",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 15, // PRICE: Mushroom Walnut Salad - 15 GEL
+    currency: "₾",
+    tags: ["vegetarian"],
+    image: "/placeholder.svg", // REPLACE: Photo for Mushroom Walnut Salad
+  },
+
+  // PHOTO FOR VEAL SALAD
+  {
+    id: "cs5-veal-salad",
+    category: "cold-salads",
+    name: "Veal Salad",
+    nameGe: "ხბოს ხორცის სალათი",
+    nameRu: "Салат с телятиной",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 23, // PRICE: Veal Salad - 23 GEL
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Veal Salad
+  },
+
+  // PHOTO FOR BEEF TONGUE SALAD
+  {
+    id: "cs6-beef-tongue",
+    category: "cold-salads",
+    name: "Beef Tongue Salad",
+    nameGe: "საქონლის ენის სალათი",
+    nameRu: "Салат из говяжьего языка с майонезом",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 19, // PRICE: Beef Tongue Salad - 19 GEL
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Beef Tongue Salad
+  },
+
+  // PHOTO FOR CAESAR MIX
+  {
+    id: "cs7-caesar-mix",
+    category: "cold-salads",
+    name: "Caesar Salad with Mix",
+    nameGe: "ცეზარი მიქსი",
+    nameRu: "Салат \"Цезарь\" микс",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 28, // PRICE: Caesar Mix - 28 GEL
+    currency: "₾",
+    tags: ["popular"],
+    image: "/placeholder.svg", // REPLACE: Photo for Caesar Mix
+  },
+
+  // PHOTO FOR CAESAR CHICKEN
+  {
+    id: "cs8-caesar-chicken",
+    category: "cold-salads",
+    name: "Caesar Salad with Chicken",
+    nameGe: "ცეზარი ქათმის ხორცით",
+    nameRu: "Салат \"Цезарь\" с курицей",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 25, // PRICE: Caesar Chicken - 25 GEL
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Caesar Chicken
+  },
+
+  // PHOTO FOR CAESAR BACON
+  {
+    id: "cs9-caesar-bacon",
+    category: "cold-salads",
+    name: "Caesar Salad with Bacon",
+    nameGe: "ცეზარი ბეკონით",
+    nameRu: "Салат \"Цезарь\" с беконом",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 26, // PRICE: Caesar Bacon - 26 GEL
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Caesar Bacon
+  },
+
+  // PHOTO FOR CAESAR SHRIMP
+  {
+    id: "cs10-caesar-shrimp",
+    category: "cold-salads",
+    name: "Caesar with Shrimp",
+    nameGe: "ცეზარი კრევეტით",
+    nameRu: "Цезарь с креветками",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 34, // PRICE: Caesar Shrimp - 34 GEL
+    currency: "₾",
+    tags: ["popular"],
+    image: "/placeholder.svg", // REPLACE: Photo for Caesar Shrimp
+  },
+
+  // PHOTO FOR GREEK SALAD
+  {
+    id: "cs11-greek-salad",
+    category: "cold-salads",
+    name: "Greek Salad",
+    nameGe: "ბერძნული სალათი",
+    nameRu: "Греческий салат",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 17, // PRICE: Greek Salad - 17 GEL
+    currency: "₾",
+    tags: ["vegetarian"],
+    image: "/placeholder.svg", // REPLACE: Photo for Greek Salad
+  },
+
+  // PHOTO FOR VEGETABLE SALAD
+  {
+    id: "cs12-vegetable-salad",
+    category: "cold-salads",
+    name: "Vegetable Salad",
+    nameGe: "ბოსტნეულის სალათი",
+    nameRu: "Овощной салат",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 11, // PRICE: Vegetable Salad - 11 GEL
     currency: "₾",
     tags: ["vegetarian", "vegan"],
-    image: "/placeholder.svg",
+    image: "/placeholder.svg", // REPLACE: Photo for Vegetable Salad
   },
+
+  // PHOTO FOR GREEN SALAD
   {
-    id: "cs6",
+    id: "cs13-green-salad",
     category: "cold-salads",
-    name: "Mixed Greens",
-    nameGe: "შერეული მწვანილი",
-    nameRu: "Микс зелени",
-    description: "Seasonal herbs and greens from local farms",
-    descriptionGe: "სეზონური მწვანილები ადგილობრივი ფერმებიდან",
-    descriptionRu: "Сезонная зелень с местных ферм",
-    price: 12,
+    name: "Green Salad",
+    nameGe: "მწვანე სალათი",
+    nameRu: "Зеленый салат",
+    description: "",
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 11, // PRICE: Green Salad - 11 GEL
     currency: "₾",
-    tags: ["vegetarian", "vegan", "gluten-free"],
-    image: "/placeholder.svg",
+    tags: ["vegetarian", "vegan"],
+    image: "/placeholder.svg", // REPLACE: Photo for Green Salad
   },
 
   // COLD DISHES

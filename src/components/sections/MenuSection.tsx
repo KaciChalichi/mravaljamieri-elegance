@@ -73,10 +73,10 @@ function MenuItemCard({ item }: { item: MenuItem }) {
               )}
             </div>
           </div>
-          <div className="text-right shrink-0">
-            <span className="font-display text-xl font-bold text-primary tabular-nums">
-              {item.price}
-              <span className="text-base ml-0.5">{item.currency}</span>
+          <div className="text-right shrink-0 min-w-[70px]">
+            <span className="font-display text-xl font-bold text-primary inline-flex items-baseline">
+              <span className="tabular-nums">{item.price}</span>
+              <span className="text-base ml-1">{item.currency}</span>
             </span>
           </div>
         </div>
