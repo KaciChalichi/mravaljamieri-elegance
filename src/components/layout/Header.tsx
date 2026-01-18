@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Menu, Phone, Calendar, Globe } from "lucide-react";
+import { Menu, Phone, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -111,31 +111,118 @@ export function Header() {
             </a>
             
             {/* Language Toggle */}
-            <button
-              onClick={() => setLanguage(language === "en" ? "ge" : language === "ge" ? "ru" : "en")}
-              className={cn(
-                "flex items-center gap-1 px-2 py-1 text-sm font-medium transition-colors",
-                isScrolled || !isHomePage
-                  ? "text-foreground/70 hover:text-foreground"
-                  : "text-primary-foreground/70 hover:text-primary-foreground"
-              )}
-            >
-              <Globe className="h-4 w-4" />
-              {language === "en" ? "EN" : language === "ge" ? "GE" : "RU"}
-            </button>
+            <div className="flex items-center gap-1 ml-2">
+              <button
+                onClick={() => setLanguage("en")}
+                className={cn(
+                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2",
+                  language === "en" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
+                )}
+                title="English"
+              >
+                <span className="absolute inset-0 flex flex-col">
+                  <span className="flex-1 bg-[#012169]" />
+                  <span className="flex-1 bg-white" />
+                  <span className="flex-1 bg-[#C8102E]" />
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="w-full h-1.5 bg-white" />
+                  <span className="absolute w-full h-0.5 bg-[#C8102E]" />
+                  <span className="absolute h-full w-1.5 bg-white" />
+                  <span className="absolute h-full w-0.5 bg-[#C8102E]" />
+                </span>
+              </button>
+              <button
+                onClick={() => setLanguage("ge")}
+                className={cn(
+                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2 bg-white",
+                  language === "ge" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
+                )}
+                title="ქართული"
+              >
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="absolute w-full h-1.5 bg-[#FF0000]" />
+                  <span className="absolute h-full w-1.5 bg-[#FF0000]" />
+                </span>
+              </button>
+              <button
+                onClick={() => setLanguage("ru")}
+                className={cn(
+                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2",
+                  language === "ru" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
+                )}
+                title="Русский"
+              >
+                <span className="absolute inset-0 flex flex-col">
+                  <span className="flex-1 bg-white" />
+                  <span className="flex-1 bg-[#0039A6]" />
+                  <span className="flex-1 bg-[#D52B1E]" />
+                </span>
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
           <div className="lg:hidden flex items-center gap-2">
-            <button
-              onClick={() => setLanguage(language === "en" ? "ge" : language === "ge" ? "ru" : "en")}
-              className={cn(
-                "p-2 text-sm font-medium",
-                isScrolled || !isHomePage ? "text-foreground" : "text-primary-foreground"
-              )}
-            >
-              {language === "en" ? "EN" : language === "ge" ? "GE" : "RU"}
-            </button>
+            {/* Mobile Language Flags */}
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setLanguage("en")}
+                className={cn(
+                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2",
+                  language === "en" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60"
+                )}
+              >
+                <span className="absolute inset-0 flex flex-col">
+                  <span className="flex-1 bg-[#012169]" />
+                  <span className="flex-1 bg-white" />
+                  <span className="flex-1 bg-[#C8102E]" />
+                </span>
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="w-full h-1 bg-white" />
+                  <span className="absolute w-full h-0.5 bg-[#C8102E]" />
+                  <span className="absolute h-full w-1 bg-white" />
+                  <span className="absolute h-full w-0.5 bg-[#C8102E]" />
+                </span>
+              </button>
+              <button
+                onClick={() => setLanguage("ge")}
+                className={cn(
+                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2 bg-white",
+                  language === "ge" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60"
+                )}
+              >
+                <span className="absolute inset-0 flex items-center justify-center">
+                  <span className="absolute w-full h-1 bg-[#FF0000]" />
+                  <span className="absolute h-full w-1 bg-[#FF0000]" />
+                </span>
+              </button>
+              <button
+                onClick={() => setLanguage("ru")}
+                className={cn(
+                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2",
+                  language === "ru" 
+                    ? "border-primary scale-110 shadow-md" 
+                    : "border-transparent opacity-60"
+                )}
+              >
+                <span className="absolute inset-0 flex flex-col">
+                  <span className="flex-1 bg-white" />
+                  <span className="flex-1 bg-[#0039A6]" />
+                  <span className="flex-1 bg-[#D52B1E]" />
+                </span>
+              </button>
+            </div>
             
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
