@@ -21,15 +21,16 @@ export function HighlightsSection() {
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Why Choose Us", "რატომ ჩვენ")}
+            {t("Why Choose Us", "რატომ ჩვენ", "Почему мы")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("The Mravaljamieri Experience", "მრავალჟამიერის გამოცდილება")}
+            {t("The Mravaljamieri Experience", "მრავალჟამიერის გამოცდილება", "Опыт Мравалджамиери")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             {t(
               "Where every meal becomes a celebration of Georgian hospitality",
-              "სადაც ყოველი კვება ქართული სტუმართმოყვარეობის ზეიმი ხდება"
+              "სადაც ყოველი კვება ქართული სტუმართმოყვარეობის ზეიმი ხდება",
+              "Где каждая трапеза становится праздником грузинского гостеприимства"
             )}
           </p>
         </div>
@@ -48,10 +49,10 @@ export function HighlightsSection() {
                   <Icon className="h-6 w-6 md:h-7 md:w-7 text-primary group-hover:text-inherit" />
                 </div>
                 <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">
-                  {t(highlight.title, highlight.titleGe)}
+                  {t(highlight.title, highlight.titleGe, highlight.titleRu)}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {t(highlight.description, highlight.descriptionGe)}
+                  {t(highlight.description, highlight.descriptionGe, highlight.descriptionRu)}
                 </p>
               </div>
             );
@@ -67,7 +68,7 @@ export function HighlightsSection() {
           >
             <Button variant="cta" size="lg">
               <Users className="h-5 w-5 mr-2" />
-              {t("Book for a Group", "დაჯავშნეთ ჯგუფისთვის")}
+              {t("Book for a Group", "დაჯავშნეთ ჯგუფისთვის", "Забронировать для группы")}
             </Button>
           </a>
         </div>

@@ -16,10 +16,10 @@ export function FaqSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Help Center", "დახმარების ცენტრი")}
+            {t("Help Center", "დახმარების ცენტრი", "Помощь")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("Frequently Asked Questions", "ხშირად დასმული კითხვები")}
+            {t("Frequently Asked Questions", "ხშირად დასმული კითხვები", "Часто задаваемые вопросы")}
           </h2>
         </div>
 
@@ -33,10 +33,10 @@ export function FaqSection() {
                 className="bg-card rounded-lg border px-6 data-[state=open]:shadow-soft"
               >
                 <AccordionTrigger className="text-left font-display text-lg hover:no-underline py-5">
-                  {t(item.question, item.questionGe)}
+                  {t(item.question, item.questionGe, item.questionRu)}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-5">
-                  {t(item.answer, item.answerGe)}
+                  {t(item.answer, item.answerGe, item.answerRu)}
                 </AccordionContent>
               </AccordionItem>
             ))}

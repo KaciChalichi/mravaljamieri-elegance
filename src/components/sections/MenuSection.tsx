@@ -9,10 +9,10 @@ import { menuCategories, menuItems, chefsPicks, MenuItem } from "@/data/restaura
 import { cn } from "@/lib/utils";
 
 const dietaryFilters = [
-  { id: "vegetarian", label: "Vegetarian", labelGe: "ვეგეტარიანული", icon: Leaf },
-  { id: "vegan", label: "Vegan", labelGe: "ვეგანური", icon: Leaf },
-  { id: "spicy", label: "Spicy", labelGe: "ცხარე", icon: Flame },
-  { id: "gluten-free", label: "Gluten-Free", labelGe: "უგლუტენო", icon: null },
+  { id: "vegetarian", label: "Vegetarian", labelGe: "ვეგეტარიანული", labelRu: "Вегетарианское", icon: Leaf },
+  { id: "vegan", label: "Vegan", labelGe: "ვეგანური", labelRu: "Веганское", icon: Leaf },
+  { id: "spicy", label: "Spicy", labelGe: "ცხარე", labelRu: "Острое", icon: Flame },
+  { id: "gluten-free", label: "Gluten-Free", labelGe: "უგლუტენო", labelRu: "Без глютена", icon: null },
 ];
 
 function MenuItemCard({ item }: { item: MenuItem }) {
@@ -35,37 +35,37 @@ function MenuItemCard({ item }: { item: MenuItem }) {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap mb-1">
               <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                {t(item.name, item.nameGe)}
+                {t(item.name, item.nameGe, item.nameRu)}
               </h4>
               {item.tags.includes("popular") && (
                 <Badge variant="secondary" className="bg-gold/20 text-gold-dark text-xs">
                   <Star className="h-3 w-3 mr-1 fill-current" />
-                  {t("Popular", "პოპულარული")}
+                  {t("Popular", "პოპულარული", "Популярное")}
                 </Badge>
               )}
               {item.tags.includes("signature") && (
                 <Badge variant="outline" className="border-primary/30 text-primary text-xs">
-                  {t("Signature", "საფირმო")}
+                  {t("Signature", "საფირმო", "Фирменное")}
                 </Badge>
               )}
             </div>
             <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-              {t(item.description, item.descriptionGe)}
+              {t(item.description, item.descriptionGe, item.descriptionRu)}
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {item.tags.includes("vegetarian") && (
                 <span className="text-xs text-green-600 flex items-center gap-1">
-                  <Leaf className="h-3 w-3" /> {t("Veg", "ვეგ")}
+                  <Leaf className="h-3 w-3" /> {t("Veg", "ვეგ", "Вег")}
                 </span>
               )}
               {item.tags.includes("vegan") && (
                 <span className="text-xs text-green-700 flex items-center gap-1">
-                  <Leaf className="h-3 w-3" /> {t("Vegan", "ვეგანური")}
+                  <Leaf className="h-3 w-3" /> {t("Vegan", "ვეგანური", "Веган")}
                 </span>
               )}
               {item.tags.includes("spicy") && (
                 <span className="text-xs text-red-500 flex items-center gap-1">
-                  <Flame className="h-3 w-3" /> {t("Spicy", "ცხარე")}
+                  <Flame className="h-3 w-3" /> {t("Spicy", "ცხარე", "Острое")}
                 </span>
               )}
               {item.tags.includes("gluten-free") && (
@@ -95,7 +95,7 @@ function ChefPicksSlider() {
           <Star className="h-5 w-5 text-gold fill-gold" />
         </div>
         <h3 className="font-display text-2xl font-semibold text-foreground">
-          {t("Chef's Picks", "შეფ-მზარეულის არჩევანი")}
+          {t("Chef's Picks", "შეფ-მზარეულის არჩევანი", "Выбор шефа")}
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -106,14 +106,14 @@ function ChefPicksSlider() {
           >
             <div className="flex justify-between items-start mb-2">
               <h4 className="font-display text-lg font-semibold text-foreground">
-                {t(item.name, item.nameGe)}
+                {t(item.name, item.nameGe, item.nameRu)}
               </h4>
               <span className="font-display text-lg font-bold text-primary">
                 {item.price}{item.currency}
               </span>
             </div>
             <p className="text-sm text-muted-foreground">
-              {t(item.description, item.descriptionGe)}
+              {t(item.description, item.descriptionGe, item.descriptionRu)}
             </p>
           </div>
         ))}
@@ -139,7 +139,8 @@ export function MenuSection() {
         const nameMatch = item.name.toLowerCase().includes(query);
         const descMatch = item.description.toLowerCase().includes(query);
         const nameGeMatch = item.nameGe?.toLowerCase().includes(query);
-        if (!nameMatch && !descMatch && !nameGeMatch) return false;
+        const nameRuMatch = item.nameRu?.toLowerCase().includes(query);
+        if (!nameMatch && !descMatch && !nameGeMatch && !nameRuMatch) return false;
       }
       
       // Dietary filters
@@ -168,15 +169,16 @@ export function MenuSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Our Cuisine", "ჩვენი სამზარეულო")}
+            {t("Our Cuisine", "ჩვენი სამზარეულო", "Наша кухня")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("The Menu", "მენიუ")}
+            {t("The Menu", "მენიუ", "Меню")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             {t(
               "Traditional Georgian recipes crafted with love and the finest seasonal ingredients",
-              "ტრადიციული ქართული რეცეპტები, დამზადებული სიყვარულით და საუკეთესო სეზონური ინგრედიენტებით"
+              "ტრადიციული ქართული რეცეპტები, დამზადებული სიყვარულით და საუკეთესო სეზონური ინგრედიენტებით",
+              "Традиционные грузинские рецепты, приготовленные с любовью из лучших сезонных ингредиентов"
             )}
           </p>
         </div>
@@ -190,7 +192,7 @@ export function MenuSection() {
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
-              placeholder={t("Search menu...", "მოძებნეთ მენიუში...")}
+              placeholder={t("Search menu...", "მოძებნეთ მენიუში...", "Поиск по меню...")}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-10"
@@ -206,7 +208,7 @@ export function MenuSection() {
                 className="text-xs"
               >
                 {filter.icon && <filter.icon className="h-3 w-3 mr-1" />}
-                {t(filter.label, filter.labelGe)}
+                {t(filter.label, filter.labelGe, filter.labelRu)}
               </Button>
             ))}
           </div>
@@ -221,7 +223,7 @@ export function MenuSection() {
                 value={category.id}
                 className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground px-4 py-2 text-sm whitespace-nowrap"
               >
-                {t(category.name, category.nameGe)}
+                {t(category.name, category.nameGe, category.nameRu)}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -236,7 +238,7 @@ export function MenuSection() {
 
         {filteredItems.length === 0 && (
           <div className="text-center py-12 text-muted-foreground">
-            <p>{t("No items found matching your criteria", "ვერაფერი მოიძებნა")}</p>
+            <p>{t("No items found matching your criteria", "ვერაფერი მოიძებნა", "Ничего не найдено")}</p>
           </div>
         )}
 
@@ -244,7 +246,7 @@ export function MenuSection() {
         <div className="text-center pt-8 border-t">
           <Button variant="ctaOutline" size="lg">
             <Download className="h-5 w-5 mr-2" />
-            {t("Download Full Menu (PDF)", "ჩამოტვირთეთ მენიუ (PDF)")}
+            {t("Download Full Menu (PDF)", "ჩამოტვირთეთ მენიუ (PDF)", "Скачать меню (PDF)")}
           </Button>
         </div>
 

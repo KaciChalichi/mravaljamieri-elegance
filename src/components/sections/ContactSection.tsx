@@ -5,13 +5,13 @@ import { restaurantInfo } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
 
 const days = [
-  { key: "monday", label: "Monday", labelGe: "ორშაბათი" },
-  { key: "tuesday", label: "Tuesday", labelGe: "სამშაბათი" },
-  { key: "wednesday", label: "Wednesday", labelGe: "ოთხშაბათი" },
-  { key: "thursday", label: "Thursday", labelGe: "ხუთშაბათი" },
-  { key: "friday", label: "Friday", labelGe: "პარასკევი" },
-  { key: "saturday", label: "Saturday", labelGe: "შაბათი" },
-  { key: "sunday", label: "Sunday", labelGe: "კვირა" },
+  { key: "monday", label: "Monday", labelGe: "ორშაბათი", labelRu: "Понедельник" },
+  { key: "tuesday", label: "Tuesday", labelGe: "სამშაბათი", labelRu: "Вторник" },
+  { key: "wednesday", label: "Wednesday", labelGe: "ოთხშაბათი", labelRu: "Среда" },
+  { key: "thursday", label: "Thursday", labelGe: "ხუთშაბათი", labelRu: "Четверг" },
+  { key: "friday", label: "Friday", labelGe: "პარასკევი", labelRu: "Пятница" },
+  { key: "saturday", label: "Saturday", labelGe: "შაბათი", labelRu: "Суббота" },
+  { key: "sunday", label: "Sunday", labelGe: "კვირა", labelRu: "Воскресенье" },
 ] as const;
 
 export function ContactSection() {
@@ -25,10 +25,10 @@ export function ContactSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Find Us", "მოგვძებნეთ")}
+            {t("Find Us", "მოგვძებნეთ", "Найдите нас")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("Location & Contact", "მდებარეობა და კონტაქტი")}
+            {t("Location & Contact", "მდებარეობა და კონტაქტი", "Адрес и контакты")}
           </h2>
         </div>
 
@@ -43,7 +43,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-foreground mb-1">
-                    {t("Address", "მისამართი")}
+                    {t("Address", "მისამართი", "Адрес")}
                   </h3>
                   <p className="text-muted-foreground mb-3">
                     {restaurantInfo.address.full}
@@ -55,7 +55,7 @@ export function ContactSection() {
                   >
                     <Button variant="cta" size="sm">
                       <MapPin className="h-4 w-4 mr-2" />
-                      {t("Get Directions", "მისამართი")}
+                      {t("Get Directions", "მისამართი", "Как добраться")}
                     </Button>
                   </a>
                 </div>
@@ -68,7 +68,7 @@ export function ContactSection() {
                 <div className="flex items-center gap-3">
                   <Phone className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="text-sm text-muted-foreground">{t("Phone", "ტელეფონი")}</p>
+                    <p className="text-sm text-muted-foreground">{t("Phone", "ტელეფონი", "Телефон")}</p>
                     <p className="font-medium text-foreground">{restaurantInfo.phone}</p>
                   </div>
                 </div>
@@ -79,7 +79,7 @@ export function ContactSection() {
                   <MessageCircle className="h-5 w-5 text-green-600" />
                   <div>
                     <p className="text-sm text-muted-foreground">WhatsApp</p>
-                    <p className="font-medium text-foreground">{t("Message Us", "მოგვწერეთ")}</p>
+                    <p className="font-medium text-foreground">{t("Message Us", "მოგვწერეთ", "Напишите нам")}</p>
                   </div>
                 </div>
               </a>
@@ -88,7 +88,7 @@ export function ContactSection() {
                 <div className="flex items-center gap-3">
                   <Mail className="h-5 w-5 text-primary" />
                   <div>
-                    <p className="text-sm text-muted-foreground">{t("Email", "ელ-ფოსტა")}</p>
+                    <p className="text-sm text-muted-foreground">{t("Email", "ელ-ფოსტა", "Эл. почта")}</p>
                     <p className="font-medium text-foreground">{restaurantInfo.email}</p>
                   </div>
                 </div>
@@ -100,7 +100,7 @@ export function ContactSection() {
               <div className="flex items-center gap-3 mb-4">
                 <Clock className="h-5 w-5 text-primary" />
                 <h3 className="font-display text-lg font-semibold text-foreground">
-                  {t("Opening Hours", "სამუშაო საათები")}
+                  {t("Opening Hours", "სამუშაო საათები", "Часы работы")}
                 </h3>
               </div>
               <div className="space-y-2">
@@ -120,13 +120,13 @@ export function ContactSection() {
                       <span className={cn(
                         isToday ? "text-primary" : "text-muted-foreground"
                       )}>
-                        {t(day.label, day.labelGe)}
+                        {t(day.label, day.labelGe, day.labelRu)}
                         {isToday && " ★"}
                       </span>
                       <span className={cn(
                         isToday ? "text-foreground" : "text-foreground/80"
                       )}>
-                        {hours.closed ? t("Closed", "დახურულია") : `${hours.open} - ${hours.close}`}
+                        {hours.closed ? t("Closed", "დახურულია", "Закрыто") : `${hours.open} - ${hours.close}`}
                       </span>
                     </div>
                   );
@@ -139,16 +139,16 @@ export function ContactSection() {
               <div className="bg-secondary/50 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Car className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm font-medium text-foreground">{t("Parking", "პარკინგი")}</span>
+                  <span className="text-sm font-medium text-foreground">{t("Parking", "პარკინგი", "Парковка")}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{t(restaurantInfo.parking, restaurantInfo.parkingGe)}</p>
+                <p className="text-xs text-muted-foreground">{t(restaurantInfo.parking, restaurantInfo.parkingGe, restaurantInfo.parkingRu)}</p>
               </div>
               <div className="bg-secondary/50 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Train className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm font-medium text-foreground">{t("Public Transit", "საზოგადოებრივი")}</span>
+                  <span className="text-sm font-medium text-foreground">{t("Public Transit", "საზოგადოებრივი", "Общ. транспорт")}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{t(restaurantInfo.publicTransport, restaurantInfo.publicTransportGe)}</p>
+                <p className="text-xs text-muted-foreground">{t(restaurantInfo.publicTransport, restaurantInfo.publicTransportGe, restaurantInfo.publicTransportRu)}</p>
               </div>
             </div>
           </div>

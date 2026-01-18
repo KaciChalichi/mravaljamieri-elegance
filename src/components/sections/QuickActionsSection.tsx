@@ -8,8 +8,10 @@ const actions = [
     icon: Phone,
     label: "Call Us",
     labelGe: "დაგვირეკეთ",
+    labelRu: "Позвоните",
     description: "Speak with our team",
     descriptionGe: "დაელაპარაკეთ ჩვენს გუნდს",
+    descriptionRu: "Поговорите с нами",
     href: "/contact",
     color: "text-primary",
   },
@@ -17,8 +19,10 @@ const actions = [
     icon: MessageCircle,
     label: "WhatsApp",
     labelGe: "WhatsApp",
+    labelRu: "WhatsApp",
     description: "Quick message",
     descriptionGe: "სწრაფი შეტყობინება",
+    descriptionRu: "Быстрое сообщение",
     href: "/contact",
     color: "text-green-600",
   },
@@ -26,8 +30,10 @@ const actions = [
     icon: MapPin,
     label: "Directions",
     labelGe: "მისამართი",
+    labelRu: "Маршрут",
     description: "Find us easily",
     descriptionGe: "გვიპოვეთ ადვილად",
+    descriptionRu: "Найдите нас легко",
     href: "/contact",
     color: "text-blue-600",
   },
@@ -35,8 +41,10 @@ const actions = [
     icon: Calendar,
     label: "Reserve",
     labelGe: "ჯავშანი",
+    labelRu: "Бронь",
     description: "Book your table",
     descriptionGe: "დაჯავშნეთ მაგიდა",
+    descriptionRu: "Забронируйте столик",
     href: "https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D",
     color: "text-primary",
     external: true,
@@ -63,10 +71,10 @@ export function QuickActionsSection() {
                   <Icon className={cn("h-5 w-5", action.color, "group-hover:text-inherit")} />
                 </div>
                 <span className="font-display text-lg font-semibold text-foreground mb-1">
-                  {t(action.label, action.labelGe)}
+                  {t(action.label, action.labelGe, action.labelRu)}
                 </span>
                 <span className="text-sm text-muted-foreground">
-                  {t(action.description, action.descriptionGe)}
+                  {t(action.description, action.descriptionGe, action.descriptionRu)}
                 </span>
               </>
             );
@@ -119,14 +127,14 @@ export function MobileActionBar() {
           className="flex flex-col items-center py-3 text-foreground hover:bg-secondary transition-colors"
         >
           <Phone className="h-5 w-5 text-primary mb-1" />
-          <span className="text-xs font-medium">{t("Call", "დარეკვა")}</span>
+          <span className="text-xs font-medium">{t("Call", "დარეკვა", "Звонок")}</span>
         </Link>
         <Link
           to="/contact"
           className="flex flex-col items-center py-3 text-foreground hover:bg-secondary transition-colors"
         >
           <MapPin className="h-5 w-5 text-primary mb-1" />
-          <span className="text-xs font-medium">{t("Directions", "მისამართი")}</span>
+          <span className="text-xs font-medium">{t("Directions", "მისამართი", "Маршрут")}</span>
         </Link>
         <a
           href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
@@ -135,7 +143,7 @@ export function MobileActionBar() {
           className="flex flex-col items-center py-3 bg-primary text-primary-foreground"
         >
           <Calendar className="h-5 w-5 mb-1" />
-          <span className="text-xs font-medium">{t("Reserve", "ჯავშანი")}</span>
+          <span className="text-xs font-medium">{t("Reserve", "ჯავშანი", "Бронь")}</span>
         </a>
       </div>
     </div>

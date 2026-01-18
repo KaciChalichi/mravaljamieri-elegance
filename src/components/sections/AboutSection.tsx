@@ -2,10 +2,10 @@ import { Heart, Award, Sparkles, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const beliefs = [
-  { icon: Heart, title: "Quality", titleGe: "ხარისხი", description: "Only the finest ingredients", descriptionGe: "მხოლოდ საუკეთესო ინგრედიენტები" },
-  { icon: Sparkles, title: "Warmth", titleGe: "სითბო", description: "Genuine hospitality", descriptionGe: "ნამდვილი სტუმართმოყვარეობა" },
-  { icon: Users, title: "Celebration", titleGe: "ზეიმი", description: "Every meal is special", descriptionGe: "ყოველი კვება განსაკუთრებულია" },
-  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", description: "Traditional recipes, perfected", descriptionGe: "ტრადიციული რეცეპტები, სრულყოფილი" },
+  { icon: Heart, title: "Quality", titleGe: "ხარისხი", titleRu: "Качество", description: "Only the finest ingredients", descriptionGe: "მხოლოდ საუკეთესო ინგრედიენტები", descriptionRu: "Только лучшие ингредиенты" },
+  { icon: Sparkles, title: "Warmth", titleGe: "სითბო", titleRu: "Тепло", description: "Genuine hospitality", descriptionGe: "ნამდვილი სტუმართმოყვარეობა", descriptionRu: "Искреннее гостеприимство" },
+  { icon: Users, title: "Celebration", titleGe: "ზეიმი", titleRu: "Праздник", description: "Every meal is special", descriptionGe: "ყოველი კვება განსაკუთრებულია", descriptionRu: "Каждая трапеза особенная" },
+  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", titleRu: "Мастерство", description: "Traditional recipes, perfected", descriptionGe: "ტრადიციული რეცეპტები, სრულყოფილი", descriptionRu: "Совершенные традиционные рецепты" },
 ];
 
 export function AboutSection() {
@@ -18,23 +18,25 @@ export function AboutSection() {
           {/* Text Content */}
           <div>
             <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-              {t("Our Story", "ჩვენი ისტორია")}
+              {t("Our Story", "ჩვენი ისტორია", "Наша история")}
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-6">
-              {t("A Tradition of Hospitality", "სტუმართმოყვარეობის ტრადიცია")}
+              {t("A Tradition of Hospitality", "სტუმართმოყვარეობის ტრადიცია", "Традиция гостеприимства")}
             </h2>
             
             <div className="prose prose-lg text-muted-foreground mb-8">
               <p>
                 {t(
                   "For over three decades, Mravaljamieri has been the heart of Georgian celebration in Tbilisi. Our name means 'many years' – the traditional toast that wishes health, happiness, and longevity to all who gather at our table.",
-                  "სამი ათწლეულის განმავლობაში მრავალჟამიერი იყო ქართული ზეიმის გული თბილისში. ჩვენი სახელი ნიშნავს დღეგრძელობას – ტრადიციულ სადღეგრძელოს, რომელიც ჯანმრთელობას, ბედნიერებას და სიცოცხლის სიგრძეს უსურვებს ყველას, ვინც ჩვენს სუფრას უსხდება."
+                  "სამი ათწლეულის განმავლობაში მრავალჟამიერი იყო ქართული ზეიმის გული თბილისში. ჩვენი სახელი ნიშნავს დღეგრძელობას – ტრადიციულ სადღეგრძელოს, რომელიც ჯანმრთელობას, ბედნიერებას და სიცოცხლის სიგრძეს უსურვებს ყველას, ვინც ჩვენს სუფრას უსხდება.",
+                  "Уже более трёх десятилетий Мравалджамиери является сердцем грузинского праздника в Тбилиси. Наше название означает «многие лета» — традиционный тост, желающий здоровья, счастья и долголетия всем, кто собирается за нашим столом."
                 )}
               </p>
               <p>
                 {t(
                   "Our kitchen honors the recipes passed down through generations while embracing the finest seasonal ingredients from local farms. Every dish tells a story of our land, our people, and our enduring love for the art of gathering.",
-                  "ჩვენი სამზარეულო პატივს მიაგებს თაობიდან თაობას გადაცემულ რეცეპტებს და იყენებს საუკეთესო სეზონურ ინგრედიენტებს ადგილობრივი ფერმებიდან."
+                  "ჩვენი სამზარეულო პატივს მიაგებს თაობიდან თაობას გადაცემულ რეცეპტებს და იყენებს საუკეთესო სეზონურ ინგრედიენტებს ადგილობრივი ფერმებიდან.",
+                  "Наша кухня чтит рецепты, передаваемые из поколения в поколение, и использует лучшие сезонные ингредиенты с местных ферм."
                 )}
               </p>
             </div>
@@ -48,9 +50,9 @@ export function AboutSection() {
                   </div>
                   <div>
                     <h4 className="font-display font-semibold text-foreground">
-                      {t(belief.title, belief.titleGe)}
+                      {t(belief.title, belief.titleGe, belief.titleRu)}
                     </h4>
-                    <p className="text-sm text-muted-foreground">{t(belief.description, belief.descriptionGe)}</p>
+                    <p className="text-sm text-muted-foreground">{t(belief.description, belief.descriptionGe, belief.descriptionRu)}</p>
                   </div>
                 </div>
               ))}
@@ -59,12 +61,13 @@ export function AboutSection() {
             {/* Meet the Kitchen */}
             <div className="p-6 bg-card rounded-lg border">
               <h4 className="font-display text-lg font-semibold text-foreground mb-2">
-                {t("Meet the Kitchen", "გაიცანით სამზარეულო")}
+                {t("Meet the Kitchen", "გაიცანით სამზარეულო", "Познакомьтесь с кухней")}
               </h4>
               <p className="text-muted-foreground text-sm">
                 {t(
                   "Led by our head chef with 20+ years of experience in Georgian cuisine, our kitchen team brings passion and expertise to every dish.",
-                  "ჩვენი სამზარეულოს გუნდს ხელმძღვანელობს მთავარი შეფ-მზარეული 20+ წლიანი გამოცდილებით ქართულ სამზარეულოში."
+                  "ჩვენი სამზარეულოს გუნდს ხელმძღვანელობს მთავარი შეფ-მზარეული 20+ წლიანი გამოცდილებით ქართულ სამზარეულოში.",
+                  "Наша кухня под руководством шеф-повара с более чем 20-летним опытом в грузинской кухне привносит страсть и мастерство в каждое блюдо."
                 )}
               </p>
             </div>
@@ -88,7 +91,7 @@ export function AboutSection() {
         {/* Awards/Press Row (placeholder) */}
         <div className="mt-16 pt-12 border-t">
           <p className="text-center text-sm text-muted-foreground mb-6">
-            {t("As featured in", "წარმოდგენილი")}
+            {t("As featured in", "წარმოდგენილი", "Нас рекомендуют")}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-50">
             {[1, 2, 3, 4, 5].map(i => (
