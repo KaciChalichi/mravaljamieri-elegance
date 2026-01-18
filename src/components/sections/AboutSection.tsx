@@ -2,10 +2,10 @@ import { Heart, Award, Sparkles, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const beliefs = [
-  { icon: Heart, title: "Quality", titleGe: "ხარისხი", description: "Only the finest ingredients" },
-  { icon: Sparkles, title: "Warmth", titleGe: "სითბო", description: "Genuine hospitality" },
-  { icon: Users, title: "Celebration", titleGe: "ზეიმი", description: "Every meal is special" },
-  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", description: "Traditional recipes, perfected" },
+  { icon: Heart, title: "Quality", titleGe: "ხარისხი", description: "Only the finest ingredients", descriptionGe: "მხოლოდ საუკეთესო ინგრედიენტები" },
+  { icon: Sparkles, title: "Warmth", titleGe: "სითბო", description: "Genuine hospitality", descriptionGe: "ნამდვილი სტუმართმოყვარეობა" },
+  { icon: Users, title: "Celebration", titleGe: "ზეიმი", description: "Every meal is special", descriptionGe: "ყოველი კვება განსაკუთრებულია" },
+  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", description: "Traditional recipes, perfected", descriptionGe: "ტრადიციული რეცეპტები, სრულყოფილი" },
 ];
 
 export function AboutSection() {
@@ -50,7 +50,7 @@ export function AboutSection() {
                     <h4 className="font-display font-semibold text-foreground">
                       {t(belief.title, belief.titleGe)}
                     </h4>
-                    <p className="text-sm text-muted-foreground">{belief.description}</p>
+                    <p className="text-sm text-muted-foreground">{t(belief.description, belief.descriptionGe)}</p>
                   </div>
                 </div>
               ))}

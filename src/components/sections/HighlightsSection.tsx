@@ -51,7 +51,7 @@ export function HighlightsSection() {
                   {t(highlight.title, highlight.titleGe)}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {highlight.description}
+                  {t(highlight.description, highlight.descriptionGe)}
                 </p>
               </div>
             );

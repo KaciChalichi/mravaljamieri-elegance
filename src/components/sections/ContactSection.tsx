@@ -141,14 +141,14 @@ export function ContactSection() {
                   <Car className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium text-foreground">{t("Parking", "პარკინგი")}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{restaurantInfo.parking}</p>
+                <p className="text-xs text-muted-foreground">{t(restaurantInfo.parking, restaurantInfo.parkingGe)}</p>
               </div>
               <div className="bg-secondary/50 rounded-lg p-4">
                 <div className="flex items-center gap-2 mb-2">
                   <Train className="h-4 w-4 text-muted-foreground" />
                   <span className="text-sm font-medium text-foreground">{t("Public Transit", "საზოგადოებრივი")}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{restaurantInfo.publicTransport}</p>
+                <p className="text-xs text-muted-foreground">{t(restaurantInfo.publicTransport, restaurantInfo.publicTransportGe)}</p>
               </div>
             </div>
           </div>

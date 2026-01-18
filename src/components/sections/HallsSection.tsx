@@ -61,7 +61,7 @@ export function HallsSection() {
                 {t(hall.title, hall.titleGe)}
               </h3>
               <p className="text-sm text-muted-foreground mb-2">
-                {hall.description}
+                {t(hall.description, hall.descriptionGe)}
               </p>
               <div className="flex items-center gap-1 text-sm text-primary">
                 <Users className="h-4 w-4" />
