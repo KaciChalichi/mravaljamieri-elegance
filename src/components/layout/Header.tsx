@@ -135,32 +135,22 @@ export function Header() {
                 <span className="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 bg-[#C8102E]" />
                 <span className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-[#C8102E]" />
               </button>
-              {/* Georgian Flag */}
+              {/* Georgian Flag - using image for proper rendering */}
               <button
                 onClick={() => setLanguage("ge")}
                 className={cn(
-                  "relative w-8 h-6 rounded-sm overflow-hidden transition-all duration-200 border-2 bg-white",
+                  "relative w-8 h-6 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "ge" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
                 )}
                 title="ქართული"
               >
-                {/* Main cross */}
-                <span className="absolute top-1/2 left-0 right-0 h-1.5 -translate-y-1/2 bg-[#FF0000]" />
-                <span className="absolute left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-[#FF0000]" />
-                {/* 4 small crosses - top left */}
-                <span className="absolute top-[20%] left-[12%] w-2 h-0.5 bg-[#FF0000]" />
-                <span className="absolute top-[8%] left-[20%] w-0.5 h-2 bg-[#FF0000]" />
-                {/* top right */}
-                <span className="absolute top-[20%] right-[12%] w-2 h-0.5 bg-[#FF0000]" />
-                <span className="absolute top-[8%] right-[20%] w-0.5 h-2 bg-[#FF0000]" />
-                {/* bottom left */}
-                <span className="absolute bottom-[20%] left-[12%] w-2 h-0.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[8%] left-[20%] w-0.5 h-2 bg-[#FF0000]" />
-                {/* bottom right */}
-                <span className="absolute bottom-[20%] right-[12%] w-2 h-0.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[8%] right-[20%] w-0.5 h-2 bg-[#FF0000]" />
+                <img 
+                  src="https://flagcdn.com/w40/ge.png" 
+                  alt="Georgian flag"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </button>
               {/* Russian Flag */}
               <button
@@ -204,26 +194,21 @@ export function Header() {
                 <span className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2 bg-[#C8102E]" />
                 <span className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-[#C8102E]" />
               </button>
-              {/* Georgian Flag */}
+              {/* Georgian Flag - using image for proper rendering */}
               <button
                 onClick={() => setLanguage("ge")}
                 className={cn(
-                  "relative w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 border-2 bg-white",
+                  "relative w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "ge" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60"
                 )}
               >
-                <span className="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 bg-[#FF0000]" />
-                <span className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-[#FF0000]" />
-                <span className="absolute top-[20%] left-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
-                <span className="absolute top-[8%] left-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
-                <span className="absolute top-[20%] right-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
-                <span className="absolute top-[8%] right-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[20%] left-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[8%] left-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[20%] right-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
-                <span className="absolute bottom-[8%] right-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
+                <img 
+                  src="https://flagcdn.com/w40/ge.png" 
+                  alt="Georgian flag"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
               </button>
               {/* Russian Flag */}
               <button

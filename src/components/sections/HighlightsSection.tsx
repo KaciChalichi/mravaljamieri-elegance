@@ -2,6 +2,7 @@ import { ChefHat, Home, Building, Leaf, Music, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { highlights } from "@/data/restaurantData";
+import { useNavigate } from "react-router-dom";
 
 const iconMap = {
   ChefHat,
@@ -12,8 +13,47 @@ const iconMap = {
   Users,
 };
 
+// Navigation targets for each highlight
+const highlightLinks: Record<string, { path: string; hash?: string; galleryCategory?: string }> = {
+  "Chef's Specials": { path: "/menu", hash: "chefs-picks" },
+  "Private Cabins": { path: "/gallery", galleryCategory: "cabins" },
+  "Great Hall Celebrations": { path: "/gallery", galleryCategory: "great-hall" },
+  "Seasonal Ingredients": { path: "/menu" },
+  "Live Music": { path: "/events", hash: "live-entertainment" },
+  "Group Dining": { path: "/gallery", galleryCategory: "halls" },
+};
+
 export function HighlightsSection() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
+
+  const handleHighlightClick = (title: string) => {
+    const link = highlightLinks[title];
+    if (!link) return;
+
+    if (link.galleryCategory) {
+      // Navigate to gallery and set category
+      navigate(link.path);
+      setTimeout(() => {
+        window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: link.galleryCategory }));
+        const galleryEl = document.getElementById("gallery");
+        if (galleryEl) {
+          galleryEl.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else if (link.hash) {
+      // Navigate and scroll to hash
+      navigate(link.path);
+      setTimeout(() => {
+        const el = document.getElementById(link.hash!);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      navigate(link.path);
+    }
+  };
 
   return (
     <section className="section-padding bg-secondary/30">
@@ -41,20 +81,21 @@ export function HighlightsSection() {
             const Icon = iconMap[highlight.icon as keyof typeof iconMap];
             
             return (
-              <div
+              <button
                 key={index}
-                className="group bg-card rounded-lg p-6 md:p-8 text-center card-hover border border-transparent hover:border-primary/10"
+                onClick={() => handleHighlightClick(highlight.title)}
+                className="group bg-card rounded-lg p-6 md:p-8 text-center card-hover border border-transparent hover:border-primary/10 cursor-pointer text-left"
               >
                 <div className="w-14 h-14 md:w-16 md:h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   <Icon className="h-6 w-6 md:h-7 md:w-7 text-primary group-hover:text-inherit" />
                 </div>
-                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2">
+                <h3 className="font-display text-lg md:text-xl font-semibold text-foreground mb-2 text-center">
                   {t(highlight.title, highlight.titleGe, highlight.titleRu)}
                 </h3>
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-muted-foreground text-center">
                   {t(highlight.description, highlight.descriptionGe, highlight.descriptionRu)}
                 </p>
-              </div>
+              </button>
             );
           })}
         </div>

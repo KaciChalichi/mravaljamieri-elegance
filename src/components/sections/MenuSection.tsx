@@ -89,7 +89,7 @@ function ChefPicksSlider() {
   const picks = menuItems.filter(item => chefsPicks.includes(item.id));
 
   return (
-    <div className="mb-12">
+    <div id="chefs-picks" className="mb-12">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
           <Star className="h-5 w-5 text-gold fill-gold" />

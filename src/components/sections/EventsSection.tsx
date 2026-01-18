@@ -14,7 +14,7 @@ export function EventsSection() {
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Entertainment Section */}
-          <div>
+          <div id="live-entertainment">
             <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
               {t("Live Entertainment", "ცოცხალი გასართობი", "Живые выступления")}
             </span>
