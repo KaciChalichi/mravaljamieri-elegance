@@ -37,8 +37,9 @@ const actions = [
     labelGe: "ჯავშანი",
     description: "Book your table",
     descriptionGe: "დაჯავშნეთ მაგიდა",
-    href: "/events",
+    href: "https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D",
     color: "text-primary",
+    external: true,
   },
 ];
 
@@ -51,17 +52,10 @@ export function QuickActionsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {actions.map((action) => {
             const Icon = action.icon;
+            const isExternal = 'external' in action && action.external;
             
-            return (
-              <Link
-                key={action.label}
-                to={action.href}
-                className={cn(
-                  "group bg-card rounded-lg p-4 md:p-6 shadow-medium hover:shadow-elegant",
-                  "transition-all duration-300 hover:-translate-y-1",
-                  "flex flex-col items-center text-center"
-                )}
-              >
+            const content = (
+              <>
                 <div className={cn(
                   "w-12 h-12 rounded-full flex items-center justify-center mb-3",
                   "bg-secondary group-hover:bg-primary group-hover:text-primary-foreground transition-colors"
@@ -74,6 +68,36 @@ export function QuickActionsSection() {
                 <span className="text-sm text-muted-foreground">
                   {t(action.description, action.descriptionGe)}
                 </span>
+              </>
+            );
+            
+            const className = cn(
+              "group bg-card rounded-lg p-4 md:p-6 shadow-medium hover:shadow-elegant",
+              "transition-all duration-300 hover:-translate-y-1",
+              "flex flex-col items-center text-center"
+            );
+            
+            if (isExternal) {
+              return (
+                <a
+                  key={action.label}
+                  href={action.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {content}
+                </a>
+              );
+            }
+            
+            return (
+              <Link
+                key={action.label}
+                to={action.href}
+                className={className}
+              >
+                {content}
               </Link>
             );
           })}
@@ -104,13 +128,15 @@ export function MobileActionBar() {
           <MapPin className="h-5 w-5 text-primary mb-1" />
           <span className="text-xs font-medium">{t("Directions", "მისამართი")}</span>
         </Link>
-        <Link
-          to="/events"
+        <a
+          href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex flex-col items-center py-3 bg-primary text-primary-foreground"
         >
           <Calendar className="h-5 w-5 mb-1" />
           <span className="text-xs font-medium">{t("Reserve", "ჯავშანი")}</span>
-        </Link>
+        </a>
       </div>
     </div>
   );

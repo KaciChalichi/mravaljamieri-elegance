@@ -60,17 +60,16 @@ export function HighlightsSection() {
 
         {/* CTA */}
         <div className="text-center">
-          <Button
-            variant="cta"
-            size="lg"
-            onClick={() => {
-              const element = document.getElementById("events");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
+          <a
+            href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Users className="h-5 w-5 mr-2" />
-            {t("Book for a Group", "დაჯავშნეთ ჯგუფისთვის")}
-          </Button>
+            <Button variant="cta" size="lg">
+              <Users className="h-5 w-5 mr-2" />
+              {t("Book for a Group", "დაჯავშნეთ ჯგუფისთვის")}
+            </Button>
+          </a>
         </div>
       </div>
     </section>

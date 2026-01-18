@@ -42,15 +42,20 @@ export function FloatingActions() {
 
       {/* Floating Reserve Button - Desktop only */}
       <div className="hidden lg:block fixed bottom-8 right-20 z-40">
-        <Button
-          variant="cta"
-          size="lg"
-          onClick={scrollToEvents}
-          className="shadow-elegant"
+        <a
+          href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <Calendar className="h-5 w-5 mr-2" />
-          Reserve Now
-        </Button>
+          <Button
+            variant="cta"
+            size="lg"
+            className="shadow-elegant"
+          >
+            <Calendar className="h-5 w-5 mr-2" />
+            Reserve Now
+          </Button>
+        </a>
       </div>
     </>
   );
