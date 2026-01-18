@@ -3,8 +3,10 @@ import { ArrowUp, Calendar, Phone, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { restaurantInfo } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function FloatingActions() {
+  const { t } = useLanguage();
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -53,7 +55,7 @@ export function FloatingActions() {
             className="shadow-elegant"
           >
             <Calendar className="h-5 w-5 mr-2" />
-            Reserve Now
+            {t("Reserve Now", "დაჯავშნა")}
           </Button>
         </a>
       </div>
