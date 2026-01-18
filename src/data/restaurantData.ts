@@ -92,90 +92,120 @@ export interface MenuItem {
 
 // Menu Items - REPLACE PLACEHOLDERS WITH REAL ITEMS
 export const menuItems: MenuItem[] = [
+  // ═══════════════════════════════════════════════════════════════
   // FOOD FOR GOURMETS
+  // ═══════════════════════════════════════════════════════════════
+
+  // PHOTO FOR MRAVALJAMIERI - Restaurant's signature dish
   {
-    id: "g1",
+    id: "g1-mravaljamieri",
     category: "gourmets",
-    name: "Signature Khinkali",
-    nameGe: "საფირმო ხინკალი",
-    nameRu: "Фирменные хинкали",
-    description: "Traditional Georgian dumplings with juicy meat filling, served with freshly ground black pepper",
-    descriptionGe: "ტრადიციული ქართული ხინკალი წვნიანი ხორცის შიგთავსით, მიწოდებული ახლად დაფქვილი შავი პილპილით",
-    descriptionRu: "Традиционные грузинские пельмени с сочной мясной начинкой, подаются со свежемолотым чёрным перцем",
-    price: 35,
-    currency: "₾",
-    tags: ["signature", "popular"],
-    image: "https://ibb.co/8h0wSYz",
-  },
-  {
-    id: "g2",
-    category: "gourmets",
-    name: "Adjarian Khachapuri",
-    nameGe: "აჭარული ხაჭაპური",
-    nameRu: "Аджарский хачапури",
-    description: "Boat-shaped bread filled with melted cheese, butter, and a runny egg",
-    descriptionGe: "ნავის ფორმის პური გადნობილი ყველით, კარაქით და თხევადი კვერცხით",
-    descriptionRu: "Лодочка с расплавленным сыром, маслом и жидким яйцом",
-    price: 28,
-    currency: "₾",
-    tags: ["signature", "vegetarian"],
-    image: "/placeholder.svg",
-  },
-  {
-    id: "g3",
-    category: "gourmets",
-    name: "Mtsvadi Selection",
-    nameGe: "მწვადის არჩევანი",
-    nameRu: "Ассорти мцвади",
-    description: "Premium grilled meat skewers with pomegranate glaze",
-    descriptionGe: "პრემიუმ შემწვარი ხორცის შამფურები ბროწეულის გლაზურით",
-    descriptionRu: "Премиальные шашлыки с гранатовой глазурью",
-    price: 45,
+    name: "Mravaljamieri",
+    nameGe: "მრავალჟამიერი",
+    nameRu: "Мравалжамиери",
+    description: "Pyramid from juicy kebab (Pork, veal, chicken, vegetables, fried quail)",
+    descriptionGe: "ცვრიანი მწვადების პირამიდა (ღორის მწვადი; ხბოს მწვადი; ქათმის მწვადი; ბოსტნეულის მწვადი; ქაბაბი; შემწვარი მწყერი)",
+    descriptionRu: "Пирамида из сочного шашлыка (свинина, телятина, курица, овощи, кабаб, жареная перепелка)",
+    price: 0, // TODO: Add price
     currency: "₾",
     tags: ["signature"],
-    image: "/placeholder.svg",
+    image: "/placeholder.svg", // REPLACE: Photo for Mravaljamieri
   },
+
+  // PHOTO FOR KHARACHOGLURI - Three types of grilled barbecue
   {
-    id: "g4",
+    id: "g2-kharachogluri",
     category: "gourmets",
-    name: "Satsivi Royale",
-    nameGe: "სამეფო საციცი",
-    nameRu: "Королевское сациви",
-    description: "Tender chicken in rich walnut sauce with aromatic spices",
-    descriptionGe: "ნაზი ქათამი მდიდარ ნიგვზის სოუსში არომატული სუნელებით",
-    descriptionRu: "Нежная курица в богатом ореховом соусе с ароматными специями",
-    price: 38,
+    name: "Kharachogluri",
+    nameGe: "ყარაჩოღლური",
+    nameRu: "Карачоглури",
+    description: "Three types of grilled barbecue (chicken, veal, pork) served on clay brazier",
+    descriptionGe: "სამი სახის მწვადი შემწვარი მაყალზე (ქათმის; ღორის და ხბოს მწვადი)",
+    descriptionRu: "Шашлык трёх видов (курица, телятина, свинина) подаётся на глиняном мангале",
+    price: 0, // TODO: Add price
     currency: "₾",
-    tags: ["gluten-free"],
-    image: "/placeholder.svg",
+    tags: ["signature"],
+    image: "/placeholder.svg", // REPLACE: Photo for Kharachogluri
   },
+
+  // PHOTO FOR SAJI VEAL - Tender veal with vegetables
   {
-    id: "g5",
+    id: "g3-saji-veal",
     category: "gourmets",
-    name: "Lobio Claypot",
-    nameGe: "ლობიო კეცში",
-    nameRu: "Лобио в горшочке",
-    description: "Slow-cooked Georgian beans in traditional clay pot",
-    descriptionGe: "ნელი ცეცხლზე მომზადებული ქართული ლობიო ტრადიციულ თიხის ქოთანში",
-    descriptionRu: "Грузинская фасоль, томлёная в традиционном глиняном горшке",
-    price: 22,
+    name: "Saji (Veal)",
+    nameGe: "საჯი ხბოს",
+    nameRu: "Саджи (телятина)",
+    description: "Tender pieces of veal cooked with vegetables and fruit",
+    descriptionGe: "ხბოს ხორცი მომზადებული საჯზე, შემწვარ ბოსტნეულთან და ხილთან ერთად",
+    descriptionRu: "Мясо телятина приготовленная на саджи с овощами и фруктами",
+    price: 0, // TODO: Add price
     currency: "₾",
-    tags: ["vegetarian", "vegan"],
-    image: "/placeholder.svg",
+    tags: ["signature"],
+    image: "/placeholder.svg", // REPLACE: Photo for Saji Veal
   },
+
+  // PHOTO FOR SAJI CHICKEN - Tender chicken with vegetables
   {
-    id: "g6",
+    id: "g4-saji-chicken",
     category: "gourmets",
-    name: "Chakhokhbili",
-    nameGe: "ჩახოხბილი",
-    nameRu: "Чахохбили",
-    description: "Chicken stewed with tomatoes, herbs, and Georgian spices",
-    descriptionGe: "ქათამი მოხარშული პომიდვრებით, მწვანილებითა და ქართული სუნელებით",
-    descriptionRu: "Курица, тушёная с помидорами, зеленью и грузинскими специями",
-    price: 32,
+    name: "Saji (Chicken)",
+    nameGe: "საჯი ქათმის",
+    nameRu: "Саджи (курица)",
+    description: "Tender pieces of chicken cooked with vegetables and fruit",
+    descriptionGe: "ქათმის ხორცი მომზადებული საჯზე, შემწვარ ბოსტნეულთან და ხილთან ერთად",
+    descriptionRu: "Куринное мясо приготовленная на саджи с овощами и фруктами",
+    price: 0, // TODO: Add price
     currency: "₾",
-    tags: ["gluten-free", "popular"],
-    image: "/placeholder.svg",
+    tags: ["popular"],
+    image: "/placeholder.svg", // REPLACE: Photo for Saji Chicken
+  },
+
+  // PHOTO FOR TROUT DUKE - Premium trout dish
+  {
+    id: "g5-trout-duke",
+    category: "gourmets",
+    name: "Trout Duke",
+    nameGe: "კალმახი ჰერცოგულად",
+    nameRu: "Форель по Герцогський",
+    description: "", // No description provided
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 0, // TODO: Add price
+    currency: "₾",
+    tags: [],
+    image: "/placeholder.svg", // REPLACE: Photo for Trout Duke
+  },
+
+  // PHOTO FOR THAI CHICKEN - Thai-style chicken
+  {
+    id: "g6-thai-chicken",
+    category: "gourmets",
+    name: "Thai Chicken",
+    nameGe: "ქათამი ტაილანდურად",
+    nameRu: "Цыпленок по Тайский",
+    description: "", // No description provided
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 0, // TODO: Add price
+    currency: "₾",
+    tags: ["spicy"],
+    image: "/placeholder.svg", // REPLACE: Photo for Thai Chicken
+  },
+
+  // PHOTO FOR VEAL ON CLAY PAN - Veal with signature sauce
+  {
+    id: "g7-veal-clay-pan",
+    category: "gourmets",
+    name: "Veal on Clay Pan",
+    nameGe: "ხბო კეცზე საფირმო სოუსით",
+    nameRu: "Телятина в фирменном соусе",
+    description: "", // No description provided
+    descriptionGe: "",
+    descriptionRu: "",
+    price: 0, // TODO: Add price
+    currency: "₾",
+    tags: ["signature"],
+    image: "/placeholder.svg", // REPLACE: Photo for Veal on Clay Pan
   },
 
   // COLD DISHES AND SALADS
