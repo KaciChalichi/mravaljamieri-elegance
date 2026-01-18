@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { menuCategories, menuItems, chefsPicks, MenuItem } from "@/data/restaurantData";
+import { menuCategories, menuItems, MenuItem } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
 
 const dietaryFilters = [
@@ -73,9 +73,10 @@ function MenuItemCard({ item }: { item: MenuItem }) {
               )}
             </div>
           </div>
-          <div className="text-right">
-            <span className="font-display text-xl font-bold text-primary">
-              {item.price}{item.currency}
+          <div className="text-right shrink-0">
+            <span className="font-display text-xl font-bold text-primary tabular-nums">
+              {item.price}
+              <span className="text-base ml-0.5">{item.currency}</span>
             </span>
           </div>
         </div>
@@ -84,43 +85,6 @@ function MenuItemCard({ item }: { item: MenuItem }) {
   );
 }
 
-function ChefPicksSlider() {
-  const { t } = useLanguage();
-  const picks = menuItems.filter(item => chefsPicks.includes(item.id));
-
-  return (
-    <div id="chefs-picks" className="mb-12">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-full bg-gold/20 flex items-center justify-center">
-          <Star className="h-5 w-5 text-gold fill-gold" />
-        </div>
-        <h3 className="font-display text-2xl font-semibold text-foreground">
-          {t("Chef's Picks", "შეფ-მზარეულის არჩევანი", "Выбор шефа")}
-        </h3>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {picks.map(item => (
-          <div
-            key={item.id}
-            className="bg-gradient-to-br from-primary/5 to-gold/5 rounded-lg p-5 border border-gold/20"
-          >
-            <div className="flex justify-between items-start mb-2">
-              <h4 className="font-display text-lg font-semibold text-foreground">
-                {t(item.name, item.nameGe, item.nameRu)}
-              </h4>
-              <span className="font-display text-lg font-bold text-primary">
-                {item.price}{item.currency}
-              </span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              {t(item.description, item.descriptionGe, item.descriptionRu)}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 export function MenuSection() {
   const { t, language } = useLanguage();
@@ -183,8 +147,6 @@ export function MenuSection() {
           </p>
         </div>
 
-        {/* Chef's Picks */}
-        <ChefPicksSlider />
 
         {/* Search and Filters */}
         <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -230,7 +192,7 @@ export function MenuSection() {
         </Tabs>
 
         {/* Menu Items Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <div id="food-for-gourmets" className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {filteredItems.map(item => (
             <MenuItemCard key={item.id} item={item} />
           ))}
