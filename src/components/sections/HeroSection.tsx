@@ -65,18 +65,20 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button
-              variant="hero"
-              onClick={() => scrollToSection("menu")}
+            <a href="/#menu">
+              <Button variant="hero">
+                {t("View Menu", "მენიუ")}
+              </Button>
+            </a>
+            <a 
+              href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {t("View Menu", "მენიუ")}
-            </Button>
-            <Button
-              variant="heroOutline"
-              onClick={() => scrollToSection("events")}
-            >
-              {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
-            </Button>
+              <Button variant="heroOutline">
+                {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
+              </Button>
+            </a>
           </div>
 
           {/* Quick Info Chips */}

@@ -191,16 +191,16 @@ export function GallerySection() {
           <p className="text-muted-foreground mb-4">
             {t("Planning a special event?", "გეგმავთ განსაკუთრებულ ღონისძიებას?")}
           </p>
-          <Button
-            variant="ctaOutline"
-            onClick={() => {
-              const element = document.getElementById("events");
-              if (element) element.scrollIntoView({ behavior: "smooth" });
-            }}
+          <a
+            href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <Send className="h-4 w-4 mr-2" />
-            {t("Send Us Your Event Idea", "გამოგვიგზავნეთ თქვენი იდეა")}
-          </Button>
+            <Button variant="ctaOutline">
+              <Send className="h-4 w-4 mr-2" />
+              {t("Book Your Event", "დაჯავშნეთ ღონისძიება")}
+            </Button>
+          </a>
         </div>
 
         {/* Edit Note */}

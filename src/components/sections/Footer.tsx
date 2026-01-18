@@ -39,12 +39,16 @@ export function Footer() {
                   {t("Directions", "მისამართი")}
                 </Button>
               </Link>
-              <Link to="/events">
+              <a
+                href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Button variant="hero" size="sm">
                   <Calendar className="h-4 w-4 mr-2" />
                   {t("Reserve", "ჯავშანი")}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
 

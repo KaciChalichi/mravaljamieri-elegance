@@ -96,7 +96,11 @@ export function Header() {
                 {t("Call", "დარეკვა")}
               </Button>
             </Link>
-            <Link to="/events">
+            <a
+              href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant={isScrolled || !isHomePage ? "action" : "hero"}
                 size="sm"
@@ -104,7 +108,7 @@ export function Header() {
                 <Calendar className="h-4 w-4" />
                 {t("Reserve", "დაჯავშნა")}
               </Button>
-            </Link>
+            </a>
             
             {/* Language Toggle */}
             <button
@@ -182,14 +186,17 @@ export function Header() {
                       <Phone className="h-4 w-4 mr-2" />
                       {t("Contact Us", "დაგვიკავშირდით")}
                     </Button>
-                    <Button
-                      variant="cta"
-                      className="w-full"
-                      onClick={() => handleNavClick("/events")}
+                    <a
+                      href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
                     >
-                      <Calendar className="h-4 w-4 mr-2" />
-                      {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
-                    </Button>
+                      <Button variant="cta" className="w-full">
+                        <Calendar className="h-4 w-4 mr-2" />
+                        {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </SheetContent>
