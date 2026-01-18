@@ -100,8 +100,8 @@ export function GallerySection() {
         setActiveCategory(e.detail as GalleryCategoryId);
       }
     };
-    window.addEventListener("gallery-category" as any, handleCategoryChange);
-    return () => window.removeEventListener("gallery-category" as any, handleCategoryChange);
+    window.addEventListener("changeGalleryCategory" as any, handleCategoryChange);
+    return () => window.removeEventListener("changeGalleryCategory" as any, handleCategoryChange);
   }, []);
 
   const filteredImages = galleryImages.filter(img => img.category === activeCategory);
