@@ -65,7 +65,7 @@ export function Header() {
                 key={item.id}
                 to={item.href}
                 className={cn(
-                  "px-3 py-2 text-sm font-medium transition-colors duration-300 relative",
+                  "px-3 py-2 text-sm font-medium transition-colors duration-300 relative whitespace-nowrap",
                   isScrolled || !isHomePage
                     ? isActive(item.href)
                       ? "text-primary"
@@ -111,48 +111,62 @@ export function Header() {
             </a>
             
             {/* Language Toggle */}
-            <div className="flex items-center gap-1 ml-2">
+            <div className="flex items-center gap-1.5 ml-2">
+              {/* UK Flag */}
               <button
                 onClick={() => setLanguage("en")}
                 className={cn(
-                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2",
+                  "relative w-8 h-6 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "en" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
                 )}
                 title="English"
               >
-                <span className="absolute inset-0 flex flex-col">
-                  <span className="flex-1 bg-[#012169]" />
-                  <span className="flex-1 bg-white" />
-                  <span className="flex-1 bg-[#C8102E]" />
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="w-full h-1.5 bg-white" />
-                  <span className="absolute w-full h-0.5 bg-[#C8102E]" />
-                  <span className="absolute h-full w-1.5 bg-white" />
-                  <span className="absolute h-full w-0.5 bg-[#C8102E]" />
-                </span>
+                <span className="absolute inset-0 bg-[#012169]" />
+                {/* White diagonals */}
+                <span className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, transparent 45%, white 45%, white 55%, transparent 55%), linear-gradient(to top right, transparent 45%, white 45%, white 55%, transparent 55%)' }} />
+                {/* Red diagonals */}
+                <span className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%), linear-gradient(to top right, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%)' }} />
+                {/* White cross */}
+                <span className="absolute top-1/2 left-0 right-0 h-2 -translate-y-1/2 bg-white" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-2 -translate-x-1/2 bg-white" />
+                {/* Red cross */}
+                <span className="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 bg-[#C8102E]" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-[#C8102E]" />
               </button>
+              {/* Georgian Flag */}
               <button
                 onClick={() => setLanguage("ge")}
                 className={cn(
-                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2 bg-white",
+                  "relative w-8 h-6 rounded-sm overflow-hidden transition-all duration-200 border-2 bg-white",
                   language === "ge" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
                 )}
                 title="ქართული"
               >
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="absolute w-full h-1.5 bg-[#FF0000]" />
-                  <span className="absolute h-full w-1.5 bg-[#FF0000]" />
-                </span>
+                {/* Main cross */}
+                <span className="absolute top-1/2 left-0 right-0 h-1.5 -translate-y-1/2 bg-[#FF0000]" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-[#FF0000]" />
+                {/* 4 small crosses - top left */}
+                <span className="absolute top-[20%] left-[12%] w-2 h-0.5 bg-[#FF0000]" />
+                <span className="absolute top-[8%] left-[20%] w-0.5 h-2 bg-[#FF0000]" />
+                {/* top right */}
+                <span className="absolute top-[20%] right-[12%] w-2 h-0.5 bg-[#FF0000]" />
+                <span className="absolute top-[8%] right-[20%] w-0.5 h-2 bg-[#FF0000]" />
+                {/* bottom left */}
+                <span className="absolute bottom-[20%] left-[12%] w-2 h-0.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[8%] left-[20%] w-0.5 h-2 bg-[#FF0000]" />
+                {/* bottom right */}
+                <span className="absolute bottom-[20%] right-[12%] w-2 h-0.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[8%] right-[20%] w-0.5 h-2 bg-[#FF0000]" />
               </button>
+              {/* Russian Flag */}
               <button
                 onClick={() => setLanguage("ru")}
                 className={cn(
-                  "relative w-8 h-6 rounded overflow-hidden transition-all duration-200 border-2",
+                  "relative w-8 h-6 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "ru" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60 hover:opacity-100 hover:scale-105"
@@ -172,45 +186,50 @@ export function Header() {
           <div className="lg:hidden flex items-center gap-2">
             {/* Mobile Language Flags */}
             <div className="flex items-center gap-1">
+              {/* UK Flag */}
               <button
                 onClick={() => setLanguage("en")}
                 className={cn(
-                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2",
+                  "relative w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "en" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60"
                 )}
               >
-                <span className="absolute inset-0 flex flex-col">
-                  <span className="flex-1 bg-[#012169]" />
-                  <span className="flex-1 bg-white" />
-                  <span className="flex-1 bg-[#C8102E]" />
-                </span>
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="w-full h-1 bg-white" />
-                  <span className="absolute w-full h-0.5 bg-[#C8102E]" />
-                  <span className="absolute h-full w-1 bg-white" />
-                  <span className="absolute h-full w-0.5 bg-[#C8102E]" />
-                </span>
+                <span className="absolute inset-0 bg-[#012169]" />
+                <span className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, transparent 45%, white 45%, white 55%, transparent 55%), linear-gradient(to top right, transparent 45%, white 45%, white 55%, transparent 55%)' }} />
+                <span className="absolute inset-0" style={{ background: 'linear-gradient(to bottom right, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%), linear-gradient(to top right, transparent 47%, #C8102E 47%, #C8102E 53%, transparent 53%)' }} />
+                <span className="absolute top-1/2 left-0 right-0 h-1.5 -translate-y-1/2 bg-white" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-1.5 -translate-x-1/2 bg-white" />
+                <span className="absolute top-1/2 left-0 right-0 h-0.5 -translate-y-1/2 bg-[#C8102E]" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-0.5 -translate-x-1/2 bg-[#C8102E]" />
               </button>
+              {/* Georgian Flag */}
               <button
                 onClick={() => setLanguage("ge")}
                 className={cn(
-                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2 bg-white",
+                  "relative w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 border-2 bg-white",
                   language === "ge" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60"
                 )}
               >
-                <span className="absolute inset-0 flex items-center justify-center">
-                  <span className="absolute w-full h-1 bg-[#FF0000]" />
-                  <span className="absolute h-full w-1 bg-[#FF0000]" />
-                </span>
+                <span className="absolute top-1/2 left-0 right-0 h-1 -translate-y-1/2 bg-[#FF0000]" />
+                <span className="absolute left-1/2 top-0 bottom-0 w-1 -translate-x-1/2 bg-[#FF0000]" />
+                <span className="absolute top-[20%] left-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
+                <span className="absolute top-[8%] left-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
+                <span className="absolute top-[20%] right-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
+                <span className="absolute top-[8%] right-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[20%] left-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[8%] left-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[20%] right-[12%] w-1.5 h-0.5 bg-[#FF0000]" />
+                <span className="absolute bottom-[8%] right-[18%] w-0.5 h-1.5 bg-[#FF0000]" />
               </button>
+              {/* Russian Flag */}
               <button
                 onClick={() => setLanguage("ru")}
                 className={cn(
-                  "relative w-7 h-5 rounded overflow-hidden transition-all duration-200 border-2",
+                  "relative w-7 h-5 rounded-sm overflow-hidden transition-all duration-200 border-2",
                   language === "ru" 
                     ? "border-primary scale-110 shadow-md" 
                     : "border-transparent opacity-60"
