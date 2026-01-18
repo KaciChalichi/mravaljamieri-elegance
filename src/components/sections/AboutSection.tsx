@@ -4,8 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const beliefs = [
   { icon: Heart, title: "Quality", titleGe: "ხარისხი", titleRu: "Качество", description: "Only the finest ingredients", descriptionGe: "მხოლოდ საუკეთესო ინგრედიენტები", descriptionRu: "Только лучшие ингредиенты" },
   { icon: Sparkles, title: "Warmth", titleGe: "სითბო", titleRu: "Тепло", description: "Genuine hospitality", descriptionGe: "ნამდვილი სტუმართმოყვარეობა", descriptionRu: "Искреннее гостеприимство" },
-  { icon: Users, title: "Celebration", titleGe: "ზეიმი", titleRu: "Праздник", description: "Every meal is special", descriptionGe: "ყოველი კვება განსაკუთრებულია", descriptionRu: "Каждая трапеза особенная" },
-  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", titleRu: "Мастерство", description: "Traditional recipes, perfected", descriptionGe: "ტრადიციული რეცეპტები, სრულყოფილი", descriptionRu: "Совершенные традиционные рецепты" },
+  { icon: Users, title: "Celebration", titleGe: "ზეიმი", titleRu: "Праздник", description: "Every meal is special", descriptionGe: "ყოველი სუფრა განსაკუთრებულია", descriptionRu: "Каждая трапеза особенная" },
+  { icon: Award, title: "Craft", titleGe: "ხელოსნობა", titleRu: "Мастерство", description: "Traditional recipes, perfected", descriptionGe: "სრულყოფილი ტრადიციული რეცეპტები", descriptionRu: "Совершенные традиционные рецепты" },
 ];
 
 export function AboutSection() {
