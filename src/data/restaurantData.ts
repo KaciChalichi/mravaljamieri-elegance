@@ -39,9 +39,10 @@ export const restaurantInfo = {
 
   // Social Links - Real accounts
   social: {
-    facebook: "https://www.facebook.com/profile.php?id=100063457289857",
+    facebook: "https://www.facebook.com/www.mravaljamier.ge",
     instagram: "https://www.instagram.com/restaurant_mravaljamieri",
-    tripadvisor: "https://www.tripadvisor.com/Restaurant_Review-g294195-d3533547-Reviews-Mravaljamieri-Tbilisi.html",
+    tripadvisor:
+      "https://www.tripadvisor.com/Restaurant_Review-g294195-d7271547-Reviews-Mravaljamieri-Tbilisi.html?m=69573",
     google: "https://maps.app.goo.gl/G8m3BR73f2XQyX1E9",
   },
 
