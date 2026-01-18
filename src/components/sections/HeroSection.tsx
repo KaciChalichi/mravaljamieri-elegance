@@ -38,16 +38,16 @@ export function HeroSection() {
           <div className="flex items-center justify-center gap-4 mb-6">
             <span className="w-12 h-px bg-gold/60" />
             <span className="text-gold text-sm tracking-[0.3em] uppercase font-body">
-              {t("Est. 1995", "დაარსდა 1995")}
+              {t("Est. 1995", "დაარსდა 1995", "Осн. 1995")}
             </span>
             <span className="w-12 h-px bg-gold/60" />
           </div>
 
           {/* Headline */}
           <h1 className="font-display text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-6">
-            {t("Georgian Tradition,", "ქართული ტრადიცია,")}
+            {t("Georgian Tradition,", "ქართული ტრადიცია,", "Грузинская традиция,")}
             <br />
-            <span className="text-gold">{t("Served Beautifully", "მშვენივრად მირთმეული")}</span>
+            <span className="text-gold">{t("Served Beautifully", "მშვენივრად მირთმეული", "Красиво поданная")}</span>
           </h1>
 
           {/* Subheadline */}
@@ -55,20 +55,21 @@ export function HeroSection() {
             {t(
               "Seasonal dishes, warm halls, and the kind of hospitality you remember.",
               "სეზონური კერძები, თბილი დარბაზები და სტუმართმოყვარეობა, რომელსაც დაიმახსოვრებთ.",
+              "Сезонные блюда, тёплые залы и гостеприимство, которое запоминается."
             )}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Link to="/menu">
-              <Button variant="hero">{t("View Menu", "მენიუ")}</Button>
+              <Button variant="hero">{t("View Menu", "მენიუ", "Меню")}</Button>
             </Link>
             <a
               href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="heroOutline">{t("Reserve a Table", "დაჯავშნეთ მაგიდა")}</Button>
+              <Button variant="heroOutline">{t("Reserve a Table", "დაჯავშნეთ მაგიდა", "Забронировать столик")}</Button>
             </a>
           </div>
 
@@ -77,8 +78,8 @@ export function HeroSection() {
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <Clock className="h-4 w-4 text-gold" />
               <span>
-                {t("Today", "დღეს")}:{" "}
-                {todayHours.closed ? t("Closed", "დახურულია") : `${todayHours.open} - ${todayHours.close}`}
+                {t("Today", "დღეს", "Сегодня")}:{" "}
+                {todayHours.closed ? t("Closed", "დახურულია", "Закрыто") : `${todayHours.open} - ${todayHours.close}`}
               </span>
             </div>
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
@@ -88,7 +89,7 @@ export function HeroSection() {
             <div className="flex items-center gap-2 bg-primary-foreground/10 backdrop-blur-sm px-4 py-2 rounded-full">
               <Star className="h-4 w-4 text-gold fill-gold" />
               <span>
-                {restaurantInfo.rating} ({restaurantInfo.reviewCount}+ {t("reviews", "შეფასება")})
+                {restaurantInfo.rating} ({restaurantInfo.reviewCount}+ {t("reviews", "შეფასება", "отзывов")})
               </span>
             </div>
           </div>
@@ -100,7 +101,7 @@ export function HeroSection() {
             onClick={() => scrollToSection("quick-actions")}
             className="flex flex-col items-center gap-2 text-primary-foreground/60 hover:text-primary-foreground transition-colors"
           >
-            <span className="text-xs tracking-widest uppercase">{t("Scroll to explore", "გადაახვიეთ")}</span>
+            <span className="text-xs tracking-widest uppercase">{t("Scroll to explore", "გადაახვიეთ", "Листайте вниз")}</span>
             <ChevronDown className="h-5 w-5" />
           </button>
         </div>

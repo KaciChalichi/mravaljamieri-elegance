@@ -54,10 +54,10 @@ export function ReviewsSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Guest Experiences", "სტუმრების გამოცდილება")}
+            {t("Guest Experiences", "სტუმრების გამოცდილება", "Отзывы гостей")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("What People Say", "რას ამბობენ ხალხი")}
+            {t("What People Say", "რას ამბობენ ხალხი", "Что говорят люди")}
           </h2>
         </div>
 
@@ -71,7 +71,7 @@ export function ReviewsSection() {
               <StarRating rating={Math.round(restaurantInfo.rating)} />
             </div>
             <p className="text-sm text-muted-foreground">
-              {restaurantInfo.reviewCount}+ {t("reviews", "შეფასება")}
+              {restaurantInfo.reviewCount}+ {t("reviews", "შეფასება", "отзывов")}
             </p>
           </div>
           <div className="hidden md:block w-px h-16 bg-border" />
@@ -87,7 +87,7 @@ export function ReviewsSection() {
               rel="noopener noreferrer"
               className="text-sm text-primary hover:underline flex items-center gap-1"
             >
-              {t("See all reviews", "ყველა შეფასება")}
+              {t("See all reviews", "ყველა შეფასება", "Все отзывы")}
               <ExternalLink className="h-3 w-3" />
             </a>
           </div>
@@ -136,12 +136,12 @@ export function ReviewsSection() {
                   </div>
                   <div>
                     <p className="font-medium text-foreground">{review.name}</p>
-                    <p className="text-xs text-muted-foreground">{t(review.date, review.dateGe)}</p>
+                    <p className="text-xs text-muted-foreground">{t(review.date, review.dateGe, review.dateRu)}</p>
                   </div>
                 </div>
                 <StarRating rating={review.rating} />
                 <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
-                  "{t(review.text, review.textGe)}"
+                  "{t(review.text, review.textGe, review.textRu)}"
                 </p>
               </div>
             ))}
@@ -153,7 +153,7 @@ export function ReviewsSection() {
           <a href={restaurantInfo.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
             <Button variant="ctaOutline">
               <ExternalLink className="h-4 w-4 mr-2" />
-              {t("See More on Google", "მეტი Google-ზე")}
+              {t("See More on Google", "მეტი Google-ზე", "Ещё отзывы на Google")}
             </Button>
           </a>
         </div>
@@ -161,7 +161,7 @@ export function ReviewsSection() {
         {/* As Seen On (placeholder) */}
         <div className="mt-16 pt-12 border-t">
           <p className="text-center text-sm text-muted-foreground mb-6">
-            {t("As seen on", "ნანახია")}
+            {t("As seen on", "ნანახია", "Нас рекомендуют")}
           </p>
           <div className="flex flex-wrap justify-center items-center gap-8 opacity-40">
             {["TripAdvisor", "Lonely Planet", "Condé Nast", "Forbes"].map(name => (

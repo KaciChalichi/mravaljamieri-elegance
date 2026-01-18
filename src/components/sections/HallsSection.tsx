@@ -23,15 +23,16 @@ export function HallsSection() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
-            {t("Our Spaces", "ჩვენი სივრცეები")}
+            {t("Our Spaces", "ჩვენი სივრცეები", "Наши залы")}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            {t("Halls & Atmosphere", "დარბაზები და ატმოსფერო")}
+            {t("Halls & Atmosphere", "დარბაზები და ატმოსფერო", "Залы и атмосфера")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             {t(
               "Perfect for birthdays, family feasts, company dinners, and unforgettable celebrations",
-              "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის"
+              "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის",
+              "Идеально для дней рождения, семейных торжеств, корпоративов и незабываемых праздников"
             )}
           </p>
         </div>
@@ -58,14 +59,14 @@ export function HallsSection() {
                 </div>
               </div>
               <h3 className="font-display text-xl font-semibold text-foreground group-hover:text-primary transition-colors mb-1">
-                {t(hall.title, hall.titleGe)}
+                {t(hall.title, hall.titleGe, hall.titleRu)}
               </h3>
               <p className="text-sm text-muted-foreground mb-2">
-                {t(hall.description, hall.descriptionGe)}
+                {t(hall.description, hall.descriptionGe, hall.descriptionRu)}
               </p>
               <div className="flex items-center gap-1 text-sm text-primary">
                 <Users className="h-4 w-4" />
-                <span>{hall.capacity} {t("guests", "სტუმარი")}</span>
+                <span>{hall.capacity} {t("guests", "სტუმარი", "гостей")}</span>
               </div>
             </button>
           ))}
@@ -79,7 +80,7 @@ export function HallsSection() {
             rel="noopener noreferrer"
           >
             <Button variant="cta" size="lg">
-              {t("Plan Your Event", "დაგეგმეთ ღონისძიება")}
+              {t("Plan Your Event", "დაგეგმეთ ღონისძიება", "Запланируйте мероприятие")}
             </Button>
           </a>
         </div>

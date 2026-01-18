@@ -21,25 +21,19 @@ export function FloatingActions() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const scrollToEvents = () => {
-    const element = document.getElementById("events");
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <>
-      {/* Back to Top Button - Desktop */}
+      {/* Back to Top */}
       <button
         onClick={scrollToTop}
         className={cn(
-          "fixed bottom-24 right-4 lg:bottom-8 z-40 p-3 bg-card rounded-full shadow-medium border transition-all duration-300",
-          showBackToTop
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-4 pointer-events-none"
+          "fixed bottom-8 right-8 z-40 p-3 bg-card rounded-full shadow-medium transition-all duration-300",
+          "hover:bg-primary hover:text-primary-foreground",
+          showBackToTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
         )}
         aria-label="Back to top"
       >
-        <ArrowUp className="h-5 w-5 text-foreground" />
+        <ArrowUp className="h-5 w-5" />
       </button>
 
       {/* Floating Reserve Button - Desktop only */}
@@ -55,7 +49,7 @@ export function FloatingActions() {
             className="shadow-elegant"
           >
             <Calendar className="h-5 w-5 mr-2" />
-            {t("Reserve Now", "დაჯავშნა")}
+            {t("Reserve Now", "დაჯავშნა", "Забронировать")}
           </Button>
         </a>
       </div>

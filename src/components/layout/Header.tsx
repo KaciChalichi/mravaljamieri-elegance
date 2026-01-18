@@ -77,7 +77,7 @@ export function Header() {
                   isActive(item.href) && "after:w-4"
                 )}
               >
-                {t(item.label, item.labelGe)}
+                {t(item.label, item.labelGe, item.labelRu)}
               </Link>
             ))}
           </nav>
@@ -93,7 +93,7 @@ export function Header() {
                 )}
               >
                 <Phone className="h-4 w-4" />
-                {t("Call", "დარეკვა")}
+                {t("Call", "დარეკვა", "Звонок")}
               </Button>
             </Link>
             <a
@@ -106,7 +106,7 @@ export function Header() {
                 size="sm"
               >
                 <Calendar className="h-4 w-4" />
-                {t("Reserve", "დაჯავშნა")}
+                {t("Reserve", "დაჯავშნა", "Бронь")}
               </Button>
             </a>
             
@@ -171,7 +171,7 @@ export function Header() {
                             : "text-foreground/70 hover:text-foreground hover:bg-secondary/30"
                         )}
                       >
-                        {t(item.label, item.labelGe)}
+                        {t(item.label, item.labelGe, item.labelRu)}
                       </button>
                     ))}
                   </nav>
@@ -184,7 +184,7 @@ export function Header() {
                       onClick={() => handleNavClick("/contact")}
                     >
                       <Phone className="h-4 w-4 mr-2" />
-                      {t("Contact Us", "დაგვიკავშირდით")}
+                      {t("Contact Us", "დაგვიკავშირდით", "Свяжитесь с нами")}
                     </Button>
                     <a
                       href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
@@ -194,7 +194,7 @@ export function Header() {
                     >
                       <Button variant="cta" className="w-full">
                         <Calendar className="h-4 w-4 mr-2" />
-                        {t("Reserve a Table", "დაჯავშნეთ მაგიდა")}
+                        {t("Reserve a Table", "დაჯავშნეთ მაგიდა", "Забронировать столик")}
                       </Button>
                     </a>
                   </div>
