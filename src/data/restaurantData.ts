@@ -1871,9 +1871,9 @@ export const menuItems: MenuItem[] = [
   {
     id: "k3-khinkali-goods",
     category: "khinkali",
-    name: "Khinkali goods",
+    name: "Khinkali with beef",
     nameGe: "ხინკალი საქონლის",
-    nameRu: "Хинкали товары",
+    nameRu: "Хинкали с говядиной",
     description: "",
     descriptionGe: "",
     descriptionRu: "",
