@@ -76,6 +76,7 @@ export const menuCategories = [
   { id: "cold-dishes", name: "Cold Dishes", nameGe: "ცივი კერძები", nameRu: "Холодные блюда" },
   { id: "soups", name: "Soups", nameGe: "წვნიანები", nameRu: "Супы" },
   { id: "baked", name: "Baked", nameGe: "გამომცხვარი", nameRu: "Выпечка" },
+  { id: "hot-dishes", name: "Hot dishes", nameGe: "ცხელი კერძები", nameRu: "запеченный" },
 ] as const;
 
 export type MenuCategoryId = (typeof menuCategories)[number]["id"];
