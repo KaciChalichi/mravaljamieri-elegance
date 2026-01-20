@@ -21,6 +21,13 @@ const formatPrice = (price: number) => {
   return String(price).replace(/\.0+$/g, "");
 };
 
+// Some decorative display fonts can make the Georgian Lari symbol (₾) look distorted.
+// We keep the numeric price exactly the same and render a clean currency label.
+const formatCurrency = (currency: string) => {
+  if (currency === "₾") return "GEL";
+  return currency;
+};
+
 
 function MenuItemCard({ item }: { item: MenuItem }) {
   const { t } = useLanguage();
@@ -81,9 +88,13 @@ function MenuItemCard({ item }: { item: MenuItem }) {
             </div>
           </div>
           <div className="text-right shrink-0 min-w-[80px]">
-            <span className="font-display text-xl font-bold text-primary inline-flex items-center gap-1 leading-none whitespace-nowrap">
-              <span className="tabular-nums">{formatPrice(item.price)}</span>
-              <span className="text-sm font-semibold opacity-90">{item.currency}</span>
+            <span className="inline-flex items-center whitespace-nowrap leading-none">
+              <span className="font-body text-xl font-extrabold text-primary tabular-nums lining-nums tracking-tight">
+                {formatPrice(item.price)}
+              </span>
+              <span className="ml-2 font-body text-xs font-semibold text-muted-foreground tracking-wide">
+                {formatCurrency(item.currency)}
+              </span>
             </span>
           </div>
         </div>
