@@ -78,6 +78,7 @@ export const menuCategories = [
   { id: "hot-dishes", name: "Hot Dishes", nameGe: "ცხელი კერძები", nameRu: "запеченный" },
   { id: "khinkali", name: "“Khinkali” (dumplings)", nameGe: "ხინკალი", nameRu: '"Хинкали"' },
   { id: "grilled-dishes", name: "Grilled Dishes", nameGe: "კერძები გრილზე", nameRu: "Блюда на гриле" },
+  { id: "garnish", name: "Garnish", nameGe: "გარნირი", nameRu: "Гарнир" },
 ] as const;
 
 export type MenuCategoryId = (typeof menuCategories)[number]["id"];
@@ -2097,6 +2098,11 @@ export const menuItems: MenuItem[] = [
     tags: ["vegetarian", "vegan", "gluten-free"],
     image: "/placeholder.svg",
   },
+
+  // ═══════════════════════════════════════════════════════════════
+  // GARNISH
+  // ═══════════════════════════════════════════════════════════════
+  // Add garnish items here. (No items added yet)
 ];
 
 // Gallery Categories - DO NOT CHANGE THE ORDER
