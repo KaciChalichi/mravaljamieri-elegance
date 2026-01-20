@@ -76,7 +76,8 @@ export const menuCategories = [
   { id: "soups", name: "Soups", nameGe: "წვნიანები", nameRu: "Супы" },
   { id: "baked", name: "Baked", nameGe: "გამომცხვარი", nameRu: "Выпечка" },
   { id: "hot-dishes", name: "Hot Dishes", nameGe: "ცხელი კერძები", nameRu: "запеченный" },
-  { id: "khinkali", name: "“Khinkali” (dumplings)", nameGe: "ხინკალი", nameRu: '"Хинკали"' },
+  { id: "khinkali", name: "“Khinkali” (dumplings)", nameGe: "ხინკალი", nameRu: '"Хинкали"' },
+  { id: "grilled-dishes", name: "Grilled Dishes", nameGe: "კერძები გრილზე", nameRu: "Блюда на гриле" },
 ] as const;
 
 export type MenuCategoryId = (typeof menuCategories)[number]["id"];
