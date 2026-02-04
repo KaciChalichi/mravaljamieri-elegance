@@ -81,7 +81,10 @@ export const menuCategories = [
   { id: "grilled-dishes", name: "Grilled Dishes", nameGe: "კერძები გრილზე", nameRu: "Блюда на гриле" },
   { id: "garnish", name: "Garnish", nameGe: "გარნირი", nameRu: "Гарнир" },
   { id: "dessert", name: "Dessert", nameGe: "დესერტი", nameRu: "Десерт" },
+<<<<<<< HEAD
   { id: "non-alcoholic-drinks", name: "Non-alcoholic drinks", nameGe: "უალკოჰოლო სასმელები", nameRu: "Безалкогольные напитки" },
+=======
+>>>>>>> b236b6375a4553fb0a2e192729eddfe5b25229bb
 ] as const;
 
 export type MenuCategoryId = (typeof menuCategories)[number]["id"];
