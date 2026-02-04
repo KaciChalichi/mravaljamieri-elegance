@@ -28,9 +28,28 @@ const formatCurrency = (currency: string) => {
   return currency;
 };
 
+// Decorative fonts can render digits (and separators like 0,330) with stylized glyphs.
+// Keep the dish name font, but render numeric tokens with a clean numeric font.
+const renderTextWithCleanNumbers = (text: string) => {
+  if (!text) return text;
+  const parts = text.split(/(\d+(?:[\.,]\d+)?)/g);
+  return parts.map((part, idx) => {
+    const isNumber = /^\d+(?:[\.,]\d+)?$/.test(part);
+    return isNumber ? (
+      <span key={idx} className="font-body tabular-nums lining-nums">
+        {part}
+      </span>
+    ) : (
+      <span key={idx}>{part}</span>
+    );
+  });
+};
+
 
 function MenuItemCard({ item }: { item: MenuItem }) {
   const { t } = useLanguage();
+  const displayName = t(item.name, item.nameGe, item.nameRu);
+  const displayDescription = t(item.description, item.descriptionGe, item.descriptionRu);
   
   return (
     <div className="group bg-card rounded-lg overflow-hidden border border-border/50 hover:border-primary/20 hover:shadow-soft transition-all duration-300">
@@ -49,7 +68,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap mb-1">
               <h4 className="font-display text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                {t(item.name, item.nameGe, item.nameRu)}
+                {renderTextWithCleanNumbers(displayName)}
               </h4>
               {item.tags.includes("popular") && (
                 <Badge variant="secondary" className="bg-gold/20 text-gold-dark text-xs">
@@ -64,7 +83,7 @@ function MenuItemCard({ item }: { item: MenuItem }) {
               )}
             </div>
             <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-              {t(item.description, item.descriptionGe, item.descriptionRu)}
+              {renderTextWithCleanNumbers(displayDescription)}
             </p>
             <div className="flex items-center gap-2 flex-wrap">
               {item.tags.includes("vegetarian") && (
