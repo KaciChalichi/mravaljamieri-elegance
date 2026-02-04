@@ -82,6 +82,7 @@ export const menuCategories = [
   { id: "garnish", name: "Garnish", nameGe: "გარნირი", nameRu: "Гарнир" },
   { id: "dessert", name: "Dessert", nameGe: "დესერტი", nameRu: "Десерт" },
   { id: "non-alcoholic-drinks", name: "Non-alcoholic drinks", nameGe: "უალკოჰოლო სასმელები", nameRu: "Безалкогольные напитки" },
+
 ] as const;
 
 export type MenuCategoryId = (typeof menuCategories)[number]["id"];
@@ -2744,11 +2745,13 @@ export const navItems = [
   { id: "about", label: "About", labelGe: "ჩვენს შესახებ", labelRu: "О нас", href: "/about" },
   { id: "events", label: "Events", labelGe: "ღონისძიებები", labelRu: "Мероприятия", href: "/events" },
   { id: "contact", label: "Contact", labelGe: "კონტაქტი", labelRu: "Контакты", href: "/contact" },
+
   // ═══════════════════════════════════════════════════════════════
   // NON-ALCOHOLIC DRINKS
   // ═══════════════════════════════════════════════════════════════
+
   {
-    id: "nad1-lemonade-0-5-l",
+    id: "nad1-lemonade-05",
     category: "non-alcoholic-drinks",
     name: "Lemonade 0.5 l",
     nameGe: "ლიმონათი 0.5 ლ",
@@ -2762,7 +2765,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad2-borjomi-0-5-l",
+    id: "nad2-borjomi-05",
     category: "non-alcoholic-drinks",
     name: "Borjomi 0.5 l",
     nameGe: "ბორჯომი 0.5 ლ",
@@ -2776,7 +2779,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad3-bakuriani-0-5-l",
+    id: "nad3-bakuriani-05",
     category: "non-alcoholic-drinks",
     name: "Bakuriani 0.5 l",
     nameGe: "ბაკურიანი 0.5 ლ",
@@ -2790,7 +2793,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad4-coca-cola-0-330-l",
+    id: "nad4-coca-cola-033",
     category: "non-alcoholic-drinks",
     name: "Coca-Cola 0.330 l",
     nameGe: "კოკა-კოლა 0.330 ლ",
@@ -2804,7 +2807,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad5-natural-juice-0-25-l",
+    id: "nad5-natural-juice-025",
     category: "non-alcoholic-drinks",
     name: "Natural juice 0.25 l",
     nameGe: "წვენი ნატურალური 0.25 ლ",
@@ -2818,7 +2821,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad6-freshly-squeezed-orange-juice",
+    id: "nad6-fresh-orange",
     category: "non-alcoholic-drinks",
     name: "Freshly squeezed orange juice",
     nameGe: "ახლად დაწურული წვენი „ფრეში“ ფორთოხალი",
@@ -2832,7 +2835,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad7-freshly-squeezed-apple-juice",
+    id: "nad7-fresh-apple",
     category: "non-alcoholic-drinks",
     name: "Freshly squeezed apple juice",
     nameGe: "ახლად დაწურული წვენი „ფრეში“ ვაშლი",
@@ -2846,7 +2849,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad8-freshly-squeezed-carrot-juice",
+    id: "nad8-fresh-carrot",
     category: "non-alcoholic-drinks",
     name: "Freshly squeezed carrot juice",
     nameGe: "ახლად დაწურული წვენი „ფრეში“ სტაფილო",
@@ -2860,7 +2863,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad9-freshly-squeezed-lemon-juice",
+    id: "nad9-fresh-lemon",
     category: "non-alcoholic-drinks",
     name: "Freshly squeezed lemon juice",
     nameGe: "ახლად დაწურული წვენი „ფრეში“ ლიმონი",
@@ -2916,7 +2919,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad13-cold-coffee-with-ice-cream",
+    id: "nad13-cold-coffee-ice-cream",
     category: "non-alcoholic-drinks",
     name: "Cold coffee with ice-cream",
     nameGe: "ცივი ყავა ნაყინით",
@@ -3014,7 +3017,7 @@ export const navItems = [
     image: "/placeholder.svg",
   },
   {
-    id: "nad20-iced-tea-with-fruit",
+    id: "nad20-ice-tea-fruit",
     category: "non-alcoholic-drinks",
     name: "Iced tea with fruit",
     nameGe: "ცივი ჩაი ხილის",
