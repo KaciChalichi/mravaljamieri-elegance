@@ -73,6 +73,7 @@ export const menuCategories = [
     nameGe: "ცივი კერძები და სალათები",
     nameRu: "Холодные блюда и салаты",
   },
+  { id: "cold-dishes", name: "Cold Dishes", nameGe: "ცივი კერძები", nameRu: "Холодные блюда" },
   { id: "soups", name: "Soups", nameGe: "წვნიანები", nameRu: "Супы" },
   { id: "baked", name: "Baked", nameGe: "გამომცხვარი", nameRu: "Выпечка" },
   { id: "hot-dishes", name: "Hot Dishes", nameGe: "ცხელი კერძები", nameRu: "запеченный" },
