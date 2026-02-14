@@ -9,7 +9,7 @@ export function HallsSection() {
   const navigate = useNavigate();
 
   const goToGalleryCategory = (categoryId: string) => {
-    // Gallery is a separate route (/gallery). Use a query param to select the correct tab.
+    // Gallery is a separate page; use routing + query param so it always works.
     navigate(`/gallery?category=${encodeURIComponent(categoryId)}`);
   };
 

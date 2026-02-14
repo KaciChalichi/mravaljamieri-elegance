@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { X, ChevronLeft, ChevronRight, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { galleryCategories, galleryImages, GalleryCategoryId } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
-import { useSearchParams } from "react-router-dom";
 
 interface LightboxProps {
   images: typeof galleryImages;
@@ -92,23 +92,9 @@ function Lightbox({ images, currentIndex, onClose, onNext, onPrev }: LightboxPro
 
 export function GallerySection() {
   const { t } = useLanguage();
+  const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState<GalleryCategoryId>("great-hall");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [searchParams] = useSearchParams();
-
-  // When navigating to the Gallery route from another page, reset scroll position.
-  // SPA routing keeps scroll by default, which can land users mid-page.
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, []);
-
-  // If navigated to /gallery?category=<id>, select that category.
-  useEffect(() => {
-    const fromUrl = searchParams.get("category");
-    if (fromUrl && galleryCategories.some((c) => c.id === fromUrl)) {
-      setActiveCategory(fromUrl as GalleryCategoryId);
-    }
-  }, [searchParams]);
 
   useEffect(() => {
     const handleCategoryChange = (e: CustomEvent<string>) => {
@@ -119,6 +105,14 @@ export function GallerySection() {
     window.addEventListener("changeGalleryCategory" as any, handleCategoryChange);
     return () => window.removeEventListener("changeGalleryCategory" as any, handleCategoryChange);
   }, []);
+  // Support direct linking /gallery?category=<id>
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category && galleryCategories.some(c => c.id === category)) {
+      setActiveCategory(category as GalleryCategoryId);
+    }
+  }, [searchParams]);
+
 
   const filteredImages = galleryImages.filter(img => img.category === activeCategory);
 
@@ -174,7 +168,7 @@ export function GallerySection() {
               key={image.id}
               onClick={() => openLightbox(index)}
               className={cn(
-                "group relative overflow-hidden rounded-lg bg-muted aspect-[4/3]",
+                "group relative overflow-hidden rounded-lg bg-muted aspect-square",
                 index === 0 && "md:col-span-2 md:row-span-2",
                 index === 5 && "md:col-span-2"
               )}
@@ -183,10 +177,7 @@ export function GallerySection() {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className={cn(
-                "w-full h-full transition-transform duration-500 group-hover:scale-105",
-                "object-cover"
-              )}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-primary-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity">
