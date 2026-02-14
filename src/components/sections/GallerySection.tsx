@@ -96,6 +96,12 @@ export function GallerySection() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [searchParams] = useSearchParams();
 
+  // When navigating to the Gallery route from another page, reset scroll position.
+  // SPA routing keeps scroll by default, which can land users mid-page.
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   // If navigated to /gallery?category=<id>, select that category.
   useEffect(() => {
     const fromUrl = searchParams.get("category");
