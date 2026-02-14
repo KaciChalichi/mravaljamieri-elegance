@@ -183,7 +183,10 @@ export function GallerySection() {
                 src={image.src}
                 alt={image.alt}
                 loading="lazy"
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                className={cn(
+                "w-full h-full transition-transform duration-500 group-hover:scale-105",
+                index === 0 ? "object-contain" : "object-cover"
+              )}
               />
               <div className="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/40 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-primary-foreground font-medium opacity-0 group-hover:opacity-100 transition-opacity">

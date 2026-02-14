@@ -2906,7 +2906,7 @@ export const galleryImages: GalleryImage[] = [
   {
     id: "gh1",
     category: "great-hall",
-    src: "/placeholder.svg",
+    src: "/gallery/great-hall-cover.webp",
     alt: "Great Hall overview",
     caption: "The magnificent Great Hall",
   },
@@ -3014,7 +3014,7 @@ export const hallCards = [
     descriptionGe: "დიდი ზეიმი 200 სტუმრამდე",
     descriptionRu: "Грандиозные торжества до 200 гостей",
     capacity: "100-300",
-    image: "/placeholder.svg",
+    image: "/gallery/great-hall-cover.webp",
   },
   {
     id: "painted-hall",
