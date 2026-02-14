@@ -12,7 +12,7 @@ export function HallsSection() {
       element.scrollIntoView({ behavior: "smooth" });
       // Trigger category change after scroll
       setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("gallery-category", { detail: categoryId }));
+        window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: categoryId }));
       }, 500);
     }
   };
