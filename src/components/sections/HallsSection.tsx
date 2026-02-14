@@ -2,19 +2,15 @@ import { Users, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { hallCards } from "@/data/restaurantData";
+import { useNavigate } from "react-router-dom";
 
 export function HallsSection() {
   const { t } = useLanguage();
+  const navigate = useNavigate();
 
-  const scrollToGallery = (categoryId: string) => {
-    const element = document.getElementById("gallery");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      // Trigger category change after scroll
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: categoryId }));
-      }, 500);
-    }
+  const goToGalleryCategory = (categoryId: string) => {
+    // Gallery is a separate route (/gallery). Use a query param to select the correct tab.
+    navigate(`/gallery?category=${encodeURIComponent(categoryId)}`);
   };
 
   return (
@@ -42,7 +38,7 @@ export function HallsSection() {
           {hallCards.map((hall) => (
             <button
               key={hall.id}
-              onClick={() => scrollToGallery(hall.id)}
+              onClick={() => goToGalleryCategory(hall.id)}
               className="group text-left"
             >
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4">

@@ -5,6 +5,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { galleryCategories, galleryImages, GalleryCategoryId } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
+import { useSearchParams } from "react-router-dom";
 
 interface LightboxProps {
   images: typeof galleryImages;
@@ -93,6 +94,15 @@ export function GallerySection() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<GalleryCategoryId>("great-hall");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [searchParams] = useSearchParams();
+
+  // If navigated to /gallery?category=<id>, select that category.
+  useEffect(() => {
+    const fromUrl = searchParams.get("category");
+    if (fromUrl && galleryCategories.some((c) => c.id === fromUrl)) {
+      setActiveCategory(fromUrl as GalleryCategoryId);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const handleCategoryChange = (e: CustomEvent<string>) => {
