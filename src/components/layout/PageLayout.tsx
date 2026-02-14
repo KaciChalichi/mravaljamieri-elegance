@@ -13,6 +13,8 @@ export function PageLayout({ children, showMobileBar = true }: PageLayoutProps) 
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      {/* Anchor used by ScrollToTop to reliably scroll to the real top in any environment */}
+      <div id="page-top" />
       <main className="pt-20">
         {children}
       </main>

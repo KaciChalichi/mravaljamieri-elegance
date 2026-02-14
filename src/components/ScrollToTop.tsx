@@ -8,6 +8,17 @@ export function ScrollToTop() {
     // Some environments (preview iframes, mobile browsers) can keep scroll position
     // across SPA navigations. Make this brutally reliable.
     const scrollNow = () => {
+      // Prefer an explicit top anchor so we scroll the *correct* scroll container
+      // (works even if the app is inside an iframe or a custom scroll parent).
+      const topAnchor = document.getElementById("page-top");
+      if (topAnchor) {
+        try {
+          topAnchor.scrollIntoView({ block: "start", behavior: "auto" });
+        } catch {
+          // ignore
+        }
+      }
+
       // Window
       try {
         window.scrollTo({ top: 0, left: 0, behavior: "auto" });

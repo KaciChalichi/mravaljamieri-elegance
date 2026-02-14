@@ -10,6 +10,8 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
+      {/* Anchor used by ScrollToTop to reliably scroll to the real top in any environment */}
+      <div id="page-top" />
       <main>
         <HeroSection />
         <QuickActionsSection />
