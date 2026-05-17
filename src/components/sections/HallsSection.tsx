@@ -2,21 +2,19 @@ import { Users, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { hallCards } from "@/data/restaurantData";
-import { useNavigate } from "react-router-dom";
 
 export function HallsSection() {
   const { t } = useLanguage();
-  const navigate = useNavigate();
 
   const goToGalleryCategory = (categoryId: string) => {
-    // Gallery is a separate page; use routing + query param so it always works.
-    navigate(`/gallery?category=${encodeURIComponent(categoryId)}`);
+    window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: categoryId }));
+    const el = document.getElementById("gallery");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <section className="section-padding">
+    <section id="halls" className="section-padding">
       <div className="container-custom">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <span className="text-sm tracking-[0.2em] uppercase text-primary font-medium">
             {t("Our Spaces", "ჩვენი სივრცეები", "Наши залы")}
@@ -25,28 +23,15 @@ export function HallsSection() {
             {t("Halls & Atmosphere", "დარბაზები და ატმოსფერო", "Залы и атмосфера")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {t(
-              "Perfect for birthdays, family feasts, company dinners, and unforgettable celebrations",
-              "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის",
-              "Идеально для дней рождения, семейных торжеств, корпоративов и незабываемых праздников"
-            )}
+            {t("Perfect for birthdays, family feasts, company dinners, and unforgettable celebrations", "იდეალურია დაბადების დღეებისთვის, საოჯახო ზეიმისთვის, კორპორატივებისთვის", "Идеально для дней рождения, семейных торжеств, корпоративов")}
           </p>
         </div>
 
-        {/* Halls Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {hallCards.map((hall) => (
-            <button
-              key={hall.id}
-              onClick={() => goToGalleryCategory(hall.id)}
-              className="group text-left"
-            >
+            <button key={hall.id} onClick={() => goToGalleryCategory(hall.id)} className="group text-left">
               <div className="relative aspect-[4/3] rounded-lg overflow-hidden mb-4">
-                <img
-                  src={hall.image}
-                  alt={hall.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
+                <img src={hall.image} alt={hall.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
                   <div className="bg-primary-foreground/90 backdrop-blur-sm rounded-full p-2">
@@ -68,13 +53,8 @@ export function HallsSection() {
           ))}
         </div>
 
-        {/* CTA */}
         <div className="text-center">
-          <a
-            href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D" target="_blank" rel="noopener noreferrer">
             <Button variant="cta" size="lg">
               {t("Plan Your Event", "დაგეგმეთ ღონისძიება", "Запланируйте мероприятие")}
             </Button>

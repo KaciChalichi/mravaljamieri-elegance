@@ -1,32 +1,92 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mravaljamieri | Traditional Georgian Restaurant in Tbilisi</title>
-    <meta name="description" content="Experience authentic Georgian cuisine at Mravaljamieri. Traditional dishes, warm hospitality, private halls and cabins for celebrations." />
-    <meta name="author" content="Mravaljamieri Restaurant" />
-    <meta name="keywords" content="Georgian restaurant, Tbilisi, khinkali, khachapuri, Georgian food, private dining" />
-    <meta property="og:title" content="Mravaljamieri | Georgian Tradition, Served Beautifully" />
-    <meta property="og:description" content="Seasonal dishes, warm halls, and the kind of hospitality you remember." />
-    <meta property="og:type" content="restaurant" />
-    <meta property="og:image" content="/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mravaljamieri Restaurant" />
-    <meta name="twitter:description" content="Traditional Georgian Restaurant in Tbilisi" />
-    <link rel="canonical" href="https://mravaljamieri.ge" />
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Restaurant",
-      "name": "Mravaljamieri",
-      "servesCuisine": "Georgian",
-      "priceRange": "$$"
-    }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Mravaljamieri | Traditional Georgian Restaurant in Tbilisi</title>
+  <meta name="description" content="Experience premium traditional Georgian dining at Mravaljamieri in Tbilisi. Seasonal dishes, private halls & cabins for celebrations, live entertainment, and warm hospitality. Reserve your table today.">
+  <meta name="keywords" content="Georgian restaurant, Tbilisi dining, traditional food, khinkali, private hall, celebration venue, Georgian cuisine, Mravaljamieri">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mravaljamieri.ge/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Mravaljamieri — Georgian Tradition, Served Beautifully">
+  <meta property="og:description" content="Seasonal dishes, warm halls, and the kind of hospitality you remember. Traditional Georgian restaurant in Tbilisi.">
+  <meta property="og:url" content="https://mravaljamieri.ge/">
+  <meta property="og:site_name" content="Mravaljamieri">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="ka_GE">
+  <meta property="og:locale:alternate" content="ru_RU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mravaljamieri — Georgian Tradition, Served Beautifully">
+  <meta name="twitter:description" content="Seasonal dishes, warm halls, and the kind of hospitality you remember. Traditional Georgian restaurant in Tbilisi.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+  <!-- Restaurant Schema (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mravaljamieri",
+    "description": "Traditional Georgian restaurant offering seasonal dishes, private halls for celebrations, and authentic hospitality in Tbilisi.",
+    "url": "https://mravaljamieri.ge/",
+    "telephone": "+995 570 20 03 00",
+    "email": "mravaljamieri0ffice@gmail.com",
+    "servesCuisine": "Georgian",
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tbilisi",
+      "addressCountry": "GE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "41.7370774",
+      "longitude": "44.7732729"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:30",
+      "closes": "00:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "182"
+    },
+    "sameAs": [
+      "https://www.facebook.com/www.mravaljamier.ge",
+      "https://www.instagram.com/restaurant_mravaljamieri",
+      "https://www.tripadvisor.com/Restaurant_Review-g294195-d7271547-Reviews-Mravaljamieri-Tbilisi.html"
+    ],
+    "hasMenu": {
+      "@type": "Menu",
+      "name": "Main Menu",
+      "description": "Traditional Georgian cuisine with seasonal ingredients"
+    },
+    "acceptsReservations": "True",
+    "amenityFeature": [
+      {"@type": "LocationFeatureSpecification", "name": "Free Parking", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Private Dining Rooms", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "Live Entertainment", "value": true}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
 </html>

@@ -1,50 +1,36 @@
-import { Link } from "react-router-dom";
 import { Phone, MessageCircle, MapPin, Calendar } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { restaurantInfo } from "@/data/restaurantData";
 import { cn } from "@/lib/utils";
 
 const actions = [
   {
     icon: Phone,
-    label: "Call Us",
-    labelGe: "დაგვირეკეთ",
-    labelRu: "Позвоните",
-    description: "Speak with our team",
-    descriptionGe: "დაელაპარაკეთ ჩვენს გუნდს",
-    descriptionRu: "Поговорите с нами",
-    href: "/contact",
+    label: "Call Us", labelGe: "დაგვირეკეთ", labelRu: "Позвоните",
+    description: "Speak with our team", descriptionGe: "დაელაპარაკეთ ჩვენს გუნდს", descriptionRu: "Поговорите с нами",
+    href: `tel:${restaurantInfo.phone}`,
     color: "text-primary",
   },
   {
     icon: MessageCircle,
-    label: "WhatsApp",
-    labelGe: "WhatsApp",
-    labelRu: "WhatsApp",
-    description: "Quick message",
-    descriptionGe: "სწრაფი შეტყობინება",
-    descriptionRu: "Быстрое сообщение",
-    href: "/contact",
+    label: "WhatsApp", labelGe: "WhatsApp", labelRu: "WhatsApp",
+    description: "Quick message", descriptionGe: "სწრაფი შეტყობინება", descriptionRu: "Быстрое сообщение",
+    href: `https://wa.me/${restaurantInfo.whatsapp}`,
     color: "text-green-600",
+    external: true,
   },
   {
     icon: MapPin,
-    label: "Directions",
-    labelGe: "მისამართი",
-    labelRu: "Маршрут",
-    description: "Find us easily",
-    descriptionGe: "გვიპოვეთ ადვილად",
-    descriptionRu: "Найдите нас легко",
-    href: "/contact",
+    label: "Directions", labelGe: "მისამართი", labelRu: "Маршрут",
+    description: "Find us easily", descriptionGe: "გვიპოვეთ ადვილად", descriptionRu: "Найдите нас легко",
+    href: restaurantInfo.address.googleMapsUrl,
     color: "text-blue-600",
+    external: true,
   },
   {
     icon: Calendar,
-    label: "Reserve",
-    labelGe: "ჯავშანი",
-    labelRu: "Бронь",
-    description: "Book your table",
-    descriptionGe: "დაჯავშნეთ მაგიდა",
-    descriptionRu: "Забронируйте столик",
+    label: "Reserve", labelGe: "ჯავშანი", labelRu: "Бронь",
+    description: "Book your table", descriptionGe: "დაჯავშნეთ მაგიდა", descriptionRu: "Забронируйте столик",
     href: "https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D",
     color: "text-primary",
     external: true,
@@ -60,8 +46,6 @@ export function QuickActionsSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4">
           {actions.map((action) => {
             const Icon = action.icon;
-            const isExternal = 'external' in action && action.external;
-            
             const content = (
               <>
                 <div className={cn(
@@ -85,28 +69,16 @@ export function QuickActionsSection() {
               "flex flex-col items-center text-center"
             );
             
-            if (isExternal) {
-              return (
-                <a
-                  key={action.label}
-                  href={action.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={className}
-                >
-                  {content}
-                </a>
-              );
-            }
-            
             return (
-              <Link
+              <a
                 key={action.label}
-                to={action.href}
+                href={action.href}
+                target={action.external ? "_blank" : undefined}
+                rel={action.external ? "noopener noreferrer" : undefined}
                 className={className}
               >
                 {content}
-              </Link>
+              </a>
             );
           })}
         </div>
@@ -122,20 +94,22 @@ export function MobileActionBar() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 lg:hidden bg-background/95 backdrop-blur-md border-t shadow-lg">
       <div className="grid grid-cols-3 divide-x">
-        <Link
-          to="/contact"
+        <a
+          href={`tel:${restaurantInfo.phone}`}
           className="flex flex-col items-center py-3 text-foreground hover:bg-secondary transition-colors"
         >
           <Phone className="h-5 w-5 text-primary mb-1" />
           <span className="text-xs font-medium">{t("Call", "დარეკვა", "Звонок")}</span>
-        </Link>
-        <Link
-          to="/contact"
+        </a>
+        <a
+          href={restaurantInfo.address.googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex flex-col items-center py-3 text-foreground hover:bg-secondary transition-colors"
         >
           <MapPin className="h-5 w-5 text-primary mb-1" />
           <span className="text-xs font-medium">{t("Directions", "მისამართი", "Маршрут")}</span>
-        </Link>
+        </a>
         <a
           href="https://rezto.ge/reservation/restaurantmravaljamieri?rwg_token=AFd1xnFRJQKX2f3QGLZpBu14jadt7R7E5x-UEK2wS81evWbYP-wd3wqHLbHoOsO45h2Hx4HJ9YEl2iBcx58lACcjNj2SkHDk2xs43_O6hLXNg-YbUOSMbgY%3D"
           target="_blank"

@@ -2,57 +2,32 @@ import { ChefHat, Home, Building, Leaf, Music, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { highlights } from "@/data/restaurantData";
-import { useNavigate } from "react-router-dom";
 
-const iconMap = {
-  ChefHat,
-  Home,
-  Building,
-  Leaf,
-  Music,
-  Users,
-};
+const iconMap = { ChefHat, Home, Building, Leaf, Music, Users };
 
-// Navigation targets for each highlight
-const highlightLinks: Record<string, { path: string; hash?: string; galleryCategory?: string }> = {
-  "Chef's Specials": { path: "/menu", hash: "food-for-gourmets" },
-  "Private Cabins": { path: "/gallery", galleryCategory: "cabins" },
-  "Great Hall Celebrations": { path: "/gallery", galleryCategory: "great-hall" },
-  "Seasonal Ingredients": { path: "/menu" },
-  "Live Music": { path: "/events", hash: "live-entertainment" },
-  "Group Dining": { path: "/gallery", galleryCategory: "halls" },
+// Navigation targets for each highlight (anchor-based)
+const highlightLinks: Record<string, { section: string; galleryCategory?: string }> = {
+  "Chef's Specials": { section: "menu" },
+  "Private Cabins": { section: "gallery", galleryCategory: "cabins" },
+  "Great Hall Celebrations": { section: "gallery", galleryCategory: "great-hall" },
+  "Seasonal Ingredients": { section: "menu" },
+  "Live Music": { section: "events" },
+  "Group Dining": { section: "gallery", galleryCategory: "halls" },
 };
 
 export function HighlightsSection() {
   const { t } = useLanguage();
-  const navigate = useNavigate();
 
   const handleHighlightClick = (title: string) => {
     const link = highlightLinks[title];
     if (!link) return;
 
     if (link.galleryCategory) {
-      // Navigate to gallery and set category
-      navigate(link.path);
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: link.galleryCategory }));
-        const galleryEl = document.getElementById("gallery");
-        if (galleryEl) {
-          galleryEl.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else if (link.hash) {
-      // Navigate and scroll to hash
-      navigate(link.path);
-      setTimeout(() => {
-        const el = document.getElementById(link.hash!);
-        if (el) {
-          el.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      navigate(link.path);
+      window.dispatchEvent(new CustomEvent("changeGalleryCategory", { detail: link.galleryCategory }));
     }
+
+    const el = document.getElementById(link.section);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -67,11 +42,7 @@ export function HighlightsSection() {
             {t("The Mravaljamieri Experience", "მრავალჟამიერის გამოცდილება", "Опыт Мравалджамиери")}
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            {t(
-              "Where every meal becomes a celebration of Georgian hospitality",
-              "სადაც ყოველი კვება ქართული სტუმართმოყვარეობის ზეიმი ხდება",
-              "Где каждая трапеза становится праздником грузинского гостеприимства"
-            )}
+            {t("Where every meal becomes a celebration of Georgian hospitality", "სადაც ყოველი კვება ქართული სტუმართმოყვარეობის ზეიმი ხდება", "Где каждая трапеза становится праздником грузинского гостеприимства")}
           </p>
         </div>
 
@@ -79,7 +50,6 @@ export function HighlightsSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-12">
           {highlights.map((highlight, index) => {
             const Icon = iconMap[highlight.icon as keyof typeof iconMap];
-            
             return (
               <button
                 key={index}

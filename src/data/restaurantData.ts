@@ -3252,12 +3252,13 @@ export const reviews = [
   },
 ];
 
-// Navigation items - Updated for multi-page routing
+// Navigation items - Anchor-based for single-page layout
 export const navItems = [
-  { id: "home", label: "Home", labelGe: "მთავარი", labelRu: "Главная", href: "/" },
-  { id: "menu", label: "Menu", labelGe: "მენიუ", labelRu: "Меню", href: "/menu" },
-  { id: "gallery", label: "Gallery", labelGe: "გალერეა", labelRu: "Галерея", href: "/gallery" },
-  { id: "about", label: "About", labelGe: "ჩვენს შესახებ", labelRu: "О нас", href: "/about" },
-  { id: "events", label: "Events", labelGe: "ღონისძიებები", labelRu: "Мероприятия", href: "/events" },
-  { id: "contact", label: "Contact", labelGe: "კონტაქტი", labelRu: "Контакты", href: "/contact" },
+  { id: "home", label: "Home", labelGe: "მთავარი", labelRu: "Главная", href: "#home" },
+  { id: "menu", label: "Menu", labelGe: "მენიუ", labelRu: "Меню", href: "#menu" },
+  { id: "gallery", label: "Gallery", labelGe: "გალერეა", labelRu: "Галерея", href: "#gallery" },
+  { id: "about", label: "About", labelGe: "ჩვენს შესახებ", labelRu: "О нас", href: "#about" },
+  { id: "events", label: "Events", labelGe: "ღონისძიებები", labelRu: "Мероприятия", href: "#events" },
+  { id: "reviews", label: "Reviews", labelGe: "შეფასებები", labelRu: "Отзывы", href: "#reviews" },
+  { id: "contact", label: "Contact", labelGe: "კონტაქტი", labelRu: "Контакты", href: "#contact" },
 ];
