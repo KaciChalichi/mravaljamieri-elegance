@@ -15,7 +15,7 @@ function StarRating({ rating }: { rating: number }) {
             "h-4 w-4",
             star <= rating
               ? "text-gold fill-gold"
-              : "text-muted-foreground/30"
+              : "text-muted-foreground"
           )}
         />
       ))}
